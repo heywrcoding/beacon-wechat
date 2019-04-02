@@ -1,3 +1,6 @@
 <view>
-  <habit-list></habit-list>
+  <view class="searchBar"></view>
+  <view class="activity">
+    <timeline></timeline>
+  </view>
 </view>
