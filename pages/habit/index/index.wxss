@@ -1,1 +1,12 @@
 /* pages/habit/index/index.wxss */
+.add {
+  position: fixed;
+  right: 36rpx;
+  bottom: 36rpx;
+}
+
+.add .image {
+  display: block;
+  width: 128rpx;
+  height: 128rpx;
+}

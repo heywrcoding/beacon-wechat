@@ -5,6 +5,7 @@
     wx:key="id"
     wx:for-index="idx"
     wx:for-item="item"
+    bindtap="goDetails"
   >
     <view>
       <text class="event-strong">{{item.user}} </text>

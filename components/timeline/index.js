@@ -27,4 +27,23 @@ Component({
       },
     ],
   },
+
+  /**
+   * methods
+   */
+  methods: {
+    goDetails: function (event) {
+      console.log(event);
+      var id = event.currentTarget.id
+      console.log(id)
+      wx.navigateTo({
+        url: '../view/viewDetails/viewDetails?id=' + id,
+      })
+      console.log("go to details");
+    },
+  },
+
+
+
+
 });

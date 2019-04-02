@@ -1,0 +1,133 @@
+@import '../Calendar/index.wxss';
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper {
+  position: relative;
+  height: 567rpx;
+}
+
+.swiper .image {
+  width: 755rpx;
+  height: 567rpx;
+}
+
+.swiper .imgMask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  opacity: 0.1;
+  z-index: 998;
+}
+
+.swiper .edit {
+  display: flex;
+  display: -webkit-flex;
+  position: absolute;
+  right: 43rpx;
+  bottom: 43rpx;
+  width: 133rpx;
+  height: 45rpx;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+
+.swiper .edit .image {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.content {
+  padding: 43rpx;
+}
+
+.content .date {
+  position: relative;
+  height: 42rpx;
+  line-height: 42rpx;
+}
+
+.content .date .calendar {
+  display: inline;
+  margin-left: 16rpx;
+}
+
+.calendar image {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.content .date .ocr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.ocr image {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.content .date, .content .location {
+  font-size: 22rpx;
+  color: #AAAAAA;
+}
+
+.content .calendar {
+  position: relative;
+}
+
+.content .calendar .hide {
+  position: absolute;
+  top: 25rpx;
+  left: 0;
+  font-size: 25rpx;
+  color: #2DC3A6;
+}
+
+.content .title {
+  padding: 80rpx 0;
+  font-size: 43rpx;
+  font-weight: bold;
+  color: #444444;
+}
+
+.title input {
+  height: 70rpx;
+}
+
+.content .text {
+  line-height: 25px;
+  font-size: 16px;
+  color: #333333;
+}
+
+/* .text textarea {
+  width: 100%;
+} */
+
+.save {
+  position: fixed;
+  right: 43rpx;
+  bottom: 43rpx;
+  width: 120rpx;
+  height: 80rpx;
+  border-radius: 30px;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #2DC3A6;
+  background: white;
+  box-shadow: 0 8rpx 16rpx RGBA(0, 0, 0, 0.16);
+  z-index: 999;
+}

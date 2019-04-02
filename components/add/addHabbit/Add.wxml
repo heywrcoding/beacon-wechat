@@ -1,0 +1,44 @@
+<view class="container">
+  <swiper class="swiper" current="{{current}}" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" bindchange="swiperChange">
+    <block wx:for="{{images}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item || '../Images/upload-bg.png'}}" class="image" mode="aspectFill"/>
+        <view class="imgMask"></view>
+        <view class="edit" wx:if="{{images.length}}">
+          <image src="../Images/removePhoto.png" class="image" bindtap="removeImg"/>
+          <image src="../Images/addPhoto.png" class="image" bindtap='uploadImg' wx:if="{{images.length < 3}}" />
+        </view>
+      </swiper-item>
+    </block>
+    <block wx:if="{{!images.length}}">
+      <swiper-item>
+        <image src="../Images/upload-bg.png" class="image" bindtap='uploadImg' mode="aspectFill"/>
+      </swiper-item>
+    </block> 
+  </swiper>
+  <view class="content">
+    <view class="date">
+      <text bindtap='changeCalendarShow'>{{add.getDate(date)}}</text>
+      <view class="calendar" bindtap='changeCalendarShow'>
+        <image src="../Images/calendar.png" />
+      </view>
+      <view class="ocr" bindtap='getOcrImage'>
+        <image src="../Images/ocr.png" />
+      </view>
+    </view>
+    <view class="calendar" wx:if="{{showCalendar}}">
+      <template is="calendar" data="{{...calendar}}" />
+      <!-- <view class="hide">Hide</view> -->
+    </view>
+    <view class="title">
+      <input placeholder='标题' value="{{title}}" data-type="title" bindinput='getInputValue'/>
+    </view>
+    <view class="text">
+      <textarea placeholder='请输入正文' value="{{content}}" maxlength='-1' auto-height='true' data-type="content" bindinput='getInputValue' bindfocus='getFocus' bindblur='getBlur'></textarea>
+    </view>
+  </view>
+  <view class="save" bindtap='save' wx:if="{{!inputFocus}}">保存</view>
+</view>
+
+<wxs module="add" src='./add.wxs' />
+<import src="../Calendar/index.wxml" /> 
