@@ -8,11 +8,11 @@ Page({
     indicatorColor: 'rgba(255, 255, 255, 0.5)',
     indicatorActiveColor: 'rgba(255, 255, 255, 1)',
     current: 0,
-    note: {},
-    more: {
-      black: '../Images/more-black.png',
-      white: '../Images/more-white.png'
-    },
+    habbit: {},
+    // more: {
+    //   black: '../Images/more-black.png',
+    //   white: '../Images/more-white.png'
+    // },
     change: false,
     modeAnimation: '',
     user: {}
@@ -28,22 +28,22 @@ Page({
     })
   },
   like () {
-    if (this.data.note.is_liked) return
+    if (this.data.habbit.is_liked) return
     let _this = this
     let { uid, timestamp, token } = getApp().data.key
-    let note_id = this.data.note.id
+    let habbit_id = this.data.habbit.id
     wx.request({
-      url: getApp().data.domain + 'notes/like',
+      url: getApp().data.domain + 'habbits/like',
       method: 'POST',
-      data: { uid, timestamp, token, note_id },
+      data: { uid, timestamp, token, habbit_id },
       success: function (res) {
         if (res.data.code === 0) {
-          let note = _this.data.note
-          note.is_liked = 1
+          let habbit = _this.data.habbit
+          habbit.is_liked = 1
           _this.setData({
-            note: note
+            habbit: habbit
           })
-          console.log(_this.data.note)
+          console.log(_this.data.habbit)
         } else {
           console.log(res)
         }
@@ -55,11 +55,11 @@ Page({
   },
 
   edit: function () {
-    let note = this.data.note
-    if (typeof(note.images) === 'string') {
-      note.images = note.images ? note.images.split(',') : []
+    let habbit = this.data.habbit
+    if (typeof(habbit.images) === 'string') {
+      habbit.images = habbit.images ? habbit.images.split(',') : []
     }
-    getApp().data.savedNote = note
+    getApp().data.savedhabbit = habbit
     wx.redirectTo({
       url: '../Add/Add'
     })
@@ -67,17 +67,17 @@ Page({
 
   del: function () {
     let { uid, timestamp,  token} = getApp().data.key
-    let note_id = this.data.note.id
+    let habbit_id = this.data.habbit.id
     wx.showModal({
       title: '删除',
-      content: '是否删除该日记？',
+      content: '是否删除该习惯？',
       success (res) {
         console.log(res)
         if (res.confirm) {
           wx.request({
-            url: getApp().data.domain + 'notes/delete',
+            url: getApp().data.domain + 'habbits/delete',
             method: 'GET',
-            data: { uid, timestamp, token, note_id },
+            data: { uid, timestamp, token, habbit_id },
             complete: function () {
               wx.navigateBack()
             }
@@ -95,45 +95,47 @@ Page({
 
   changeMode: function (event) {
     let mode = event.currentTarget.dataset.mode
-    let note = this.data.note
-    note.mode = mode
-    console.log(note.mode)
+    let habbit = this.data.habbit
+    habbit.mode = mode
+    console.log(habbit.mode)
     this.setData({
-      note: note,
+      habbit: habbit,
       change: false
     })
-    this.updateNote()
+    this.updatehabbit()
   },
 
-  updateNote: function () {
+  updatehabbit: function () {
     let images = this.data.images
     if (typeof (images) === 'object') {
       images = images.join()
     }
     let data = {
-      note_id: this.data.note.id,
-      date: this.data.note.date,
-      title: this.data.note.title,
-      content: this.data.note.content,
+      habbit_id: this.data.habbit.id,
+      date: this.data.habbit.date,
+      title: this.data.habbit.title,
+      content: this.data.habbit.content,
       images: images,
-      mode: parseInt(this.data.note.mode)
+      mode: parseInt(this.data.habbit.mode)
     }
-    getApp().editNote(data)
+    getApp().edithabbit(data)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (option) {
+    console.log(option)
     let find = getApp().lodash.find
-    let note = find(getApp().data.notes, (val) => {
+    console.log()
+    let habbit = find(getApp().data.habbits, (val) => {
       return val.id === Number(options.id)
     })
     this.setData({
-      note: note,
+      habbit: habbit,
       user: getApp().data.user
     })
-    console.log(note)
+    console.log(habbit)
   },
 
   /**
@@ -148,7 +150,7 @@ Page({
    */
   onShow: function () {
     wx.setNavigationBarTitle({
-      title: '日记详情',
+      title: '习惯详情',
     })
   },
 
@@ -157,7 +159,7 @@ Page({
    */
   onHide: function () {
     wx.setNavigationBarTitle({
-      title: '写日记',
+      title: '写习惯',
     })
   },
 

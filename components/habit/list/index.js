@@ -55,6 +55,9 @@ Component({
           // go to detail
           // TODO: jump to detail page
           console.log('item', idx);
+          wx.navigateTo({
+            url: '../viewDetails/viewDetails?id=' + idx,
+          })
           break;
         case 'decrease':
           this.decrease(idx);
@@ -62,15 +65,6 @@ Component({
         default:
           break;
       }
-    },
-    goDetails: function (event) {
-      console.log(event)
-      var id = event.currentTarget.dataset.id
-      console.log(id)
-      wx.navigateTo({
-        url: '../../view/viewDetails/viewDetails?id=' + id,
-      })
-      console.log("go to details");
     },
   },
   lifetimes: {

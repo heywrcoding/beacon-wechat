@@ -8,7 +8,6 @@
     wx:key="id"
     wx:for-index="idx"
     wx:for-item="item"
-    bindtap="goDetails"
   >
     <view class="btn-box ripple" data-type="increase">increase</view>
     <view class="content-box ripple" data-type="item">

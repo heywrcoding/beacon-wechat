@@ -2,6 +2,7 @@
   "pages":[
     "pages/home/index",
     "pages/habit/index/index",
+    "pages/habit/viewDetails/viewDetails",
     "pages/aim/index/index",
     "pages/profile/index/index"
     

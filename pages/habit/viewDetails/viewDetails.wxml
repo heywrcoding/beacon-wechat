@@ -32,14 +32,14 @@
     <view class="normal">
       <image src="{{detail.mode(note.mode)}}" class="image" wx:if="{{!change}}" />
     </view> 
-    <view class="description">
+    <!-- <view class="description">
       <view wx:if="{{change}}"></view>
       <view wx:if="{{!change}}">
         <text>{{note.mode}}</text>
         <text class="mode">情绪值</text>
       </view>
       <view class="edit" bindtap='change' wx:if="{{note.user_id === user.id}}">更改</view> 
-    </view>
+    </view> -->
   </view>
   <!-- <view class="discuss">
     <view class="image">
@@ -88,11 +88,11 @@
   <view class="edit-btn" wx:if="{{note.user_id === user.id}}">
     <view bindtap='edit'>
       <image src="../Images/edit.png" />
-      <text>修改日记</text>
+      <text>修改习惯</text>
     </view>
     <view bindtap='del'>
       <image src="../Images/delete.png" />
-      <text>删除日记</text>
+      <text>删除习惯</text>
     </view>
   </view>
 </view>
