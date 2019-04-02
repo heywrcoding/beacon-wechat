@@ -1,9 +1,9 @@
 {
   "pages":[
-    "pages/Home/index/index",
+    "pages/home/index/index",
     "pages/habit/index/index",
-    "pages/Aim/index/index",
-    "pages/Profile/index/index"
+    "pages/aim/index/index",
+    "pages/profile/index/index"
     
   ],
   "window":{
@@ -18,7 +18,7 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/Home/index/index",
+        "pagePath": "pages/home/index/index",
         "text": "主页",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home-selected.png"
@@ -30,13 +30,13 @@
         "selectedIconPath": "images/Habit-selected.png"
       },
       {
-        "pagePath": "pages/Aim/index/index",
+        "pagePath": "pages/aim/index/index",
         "text": "目标",
         "iconPath": "images/Aim.png",
         "selectedIconPath": "images/Aim-selected.png"
       },
       {
-        "pagePath": "pages/Profile/index/index",
+        "pagePath": "pages/profile/index/index",
         "text": "我的",
         "iconPath": "images/Profile.png",
         "selectedIconPath": "images/Profile-selected.png"
