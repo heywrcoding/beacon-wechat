@@ -62,7 +62,16 @@ Component({
         default:
           break;
       }
-    }
+    },
+    goDetails: function (event) {
+      console.log(event)
+      var id = event.currentTarget.dataset.id
+      console.log(id)
+      wx.navigateTo({
+        url: '../../view/viewDetails/viewDetails?id=' + id,
+      })
+      console.log("go to details");
+    },
   },
   lifetimes: {
     attached() {
