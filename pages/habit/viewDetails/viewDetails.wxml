@@ -1,27 +1,30 @@
 <view class="container">
-  <swiper class="swiper" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" bindchange="swiperChange" wx:if="{{note.images}}">
-    <block wx:for="{{detail.imagesToArr(note.images)}}" wx:key="index">
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" bindchange="swiperChange" current="{{current}}" wx:if="{{habbit.images}}">
+    <block wx:for="{{detail.imagesToArr(habbit.images)}}" wx:key="index">
       <swiper-item>
         <image src="{{item}}" class="image" mode="aspectFill"/>
+         <!-- <image src="{{habbit.images}}" class="image" mode="aspectFill"/> -->
       </swiper-item>
     </block>
   </swiper>
+  <!-- <image src="{{habbit.image}}" class="image" mode="aspectFill"/> -->
   <view class="content">
     <view class="date">
-      <text>{{detail.getDate(note.date)}}</text>
+      <!-- <text>{{detail.getDate(habbit.date)}}</text> -->
+      <text>习惯创建时间：{{habbit.date}}</text>
     </view>
     <view class="title">
-      <text>{{note.title}}</text>
+      <text>{{habbit.name}}</text>
     </view>
     <view class="text">
-      <text>{{note.content}}</text>
+      <text>{{habbit.content}}</text>
     </view>
     <view class="location">
-      <image src="../Images/location.png" class="image" />
-      <text>{{note.location}}</text>
+      <image src="../../../images/location.png" class="image" />
+      <!-- <text>{{habbit.location}}</text> -->
     </view>
   </view>
-  <view class="mood">
+  <!-- <view class="mood">
     <view class="change" wx:if="{{change}}">
       <image src="../Images/verySad.png" class="image" data-mode="0" bindtap='changeMode' />
       <image src="../Images/sad.png" class="image" data-mode="25" bindtap='changeMode' />
@@ -30,17 +33,17 @@
       <image src="../Images/veryHappy.png" class="image" data-mode="100" bindtap='changeMode' />
     </view>
     <view class="normal">
-      <image src="{{detail.mode(note.mode)}}" class="image" wx:if="{{!change}}" />
+      <image src="{{detail.mode(habbit.mode)}}" class="image" wx:if="{{!change}}" />
     </view> 
-    <!-- <view class="description">
+    <view class="description">
       <view wx:if="{{change}}"></view>
       <view wx:if="{{!change}}">
-        <text>{{note.mode}}</text>
+        <text>{{habbit.mode}}</text>
         <text class="mode">情绪值</text>
       </view>
-      <view class="edit" bindtap='change' wx:if="{{note.user_id === user.id}}">更改</view> 
-    </view> -->
-  </view>
+      <view class="edit" bindtap='change' wx:if="{{habbit.user_id === user.id}}">更改</view> 
+    </view>
+  </view> -->
   <!-- <view class="discuss">
     <view class="image">
       <image src="../Images/discuss.png" />
@@ -81,17 +84,17 @@
       </view>
     </view>
   </view> -->
-  <view class="like" bindtap="like" wx:if="{{note.user_id !== user.id}}">
-    <image src="../Images/like.png" class="image" wx:if="{{!note.is_liked}}" />
-    <image src="../Images/liked.png" class="image" wx:if="{{note.is_liked}}" />
+  <view class="like" bindtap="like" wx:if="{{habbit.user_id !== user.id}}">
+    <image src="../../../images/like.png" class="image" wx:if="{{!habbit.is_liked}}" />
+    <image src="../../../images/liked.png" class="image" wx:if="{{habbit.is_liked}}" />
   </view>
-  <view class="edit-btn" wx:if="{{note.user_id === user.id}}">
+  <view class="edit-btn" wx:if="{{habbit.user_id === user.id}}">
     <view bindtap='edit'>
-      <image src="../Images/edit.png" />
+      <image src="../../../images/edit.png" />
       <text>修改习惯</text>
     </view>
     <view bindtap='del'>
-      <image src="../Images/delete.png" />
+      <image src="../../../images/delete.png" />
       <text>删除习惯</text>
     </view>
   </view>

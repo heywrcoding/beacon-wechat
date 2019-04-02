@@ -8,7 +8,15 @@ Page({
     indicatorColor: 'rgba(255, 255, 255, 0.5)',
     indicatorActiveColor: 'rgba(255, 255, 255, 1)',
     current: 0,
-    habbit: {},
+    habbit: {
+      // name: '吃早餐',
+      // images: [],
+      // image: '../../../images/testForViewDetails.jpg',
+      // content: '今天的早餐吃得也很开心呢~',
+      // date: '2019年4月3日',
+      // frequency: 0,
+      // today: 0,
+    },
     // more: {
     //   black: '../Images/more-black.png',
     //   white: '../Images/more-white.png'
@@ -126,16 +134,30 @@ Page({
    */
   onLoad: function (option) {
     console.log(option)
-    let find = getApp().lodash.find
-    console.log()
-    let habbit = find(getApp().data.habbits, (val) => {
-      return val.id === Number(options.id)
-    })
+    // let find = getApp().lodash.find
+    // let habbit = find(getApp().data.habbits, (val) => {
+    //   return val.id === Number(options.id)
+    // })
+    // this.setData({
+    //   habbit: habbit,
+    //   user: getApp().data.user
+    // })
+    // console.log(habbit)
+
     this.setData({
-      habbit: habbit,
-      user: getApp().data.user
+      habbit: {
+        name: '吃早餐',
+        images: ['../../../images/testForViewDetails.jpg'],
+        image: '../../../images/testForViewDetails.jpg',
+        content: '今天的早餐吃得也很开心呢~',
+        date: '2019年4月3日',
+        frequency: 0,
+        today: 0,
+      },
+      current: 0
     })
-    console.log(habbit)
+
+    console.log(this.data.habbit.images)
   },
 
   /**
@@ -159,7 +181,7 @@ Page({
    */
   onHide: function () {
     wx.setNavigationBarTitle({
-      title: '写习惯',
+      title: '修改习惯',
     })
   },
 
