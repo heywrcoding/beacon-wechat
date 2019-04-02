@@ -1,0 +1,17 @@
+<view class="timeline">
+  <view
+    class="event"
+    wx:for="{{activities}}"
+    wx:key="id"
+    wx:for-index="idx"
+    wx:for-item="item"
+  >
+    <view>
+      <text class="event-strong">{{item.user}} </text>
+      <text>{{item.operation}} </text>
+      <text class="event-strong">{{item.target}} </text>
+      <text>{{item.targetType}}</text>
+    </view>
+    <view class="event-content">{{item.content}}</view>
+  </view>
+</view>

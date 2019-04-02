@@ -1,0 +1,30 @@
+.timeline {
+  border-left: solid 10rpx #66ccff;
+  padding: 60rpx;
+}
+
+.event {
+  position: relative;
+  word-wrap: break-word;
+  border-bottom: dashed 1rpx rgba(0, 0, 0, .2);
+  padding-bottom: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.event::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 16rpx;
+  left: -76rpx;
+  width: 32rpx;
+  height: 32rpx;
+  box-shadow: 0 0 0 10rpx #66ccff;
+  border-radius: 50%;
+  background: white;
+}
+
+.event-strong {
+  font-size: 40rpx;
+  font-weight: 800;
+}
