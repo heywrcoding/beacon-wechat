@@ -1,16 +1,27 @@
 <view class="container">
-  <swiper class="swiper" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" bindchange="swiperChange" current="{{current}}" wx:if="{{habbit.images}}">
-    <block wx:for="{{detail.imagesToArr(habbit.images)}}" wx:key="index">
+  <!-- <swiper class="swiper" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" bindchange="swiperChange" wx:if="{{habbit.images}}">
+    <block wx:for="{{viewDetails.imagesToArr(habbit.images)}}" wx:key="index">
       <swiper-item>
-        <image src="{{item}}" class="image" mode="aspectFill"/>
-         <!-- <image src="{{habbit.images}}" class="image" mode="aspectFill"/> -->
+        <image src="{{item}}" class="image" mode="aspectFit" bindload="imageLoad"/>
+        <image src="{{habbit.images}}" class="image" mode="aspectFill"/>
       </swiper-item>
     </block>
-  </swiper>
-  <!-- <image src="{{habbit.image}}" class="image" mode="aspectFill"/> -->
+  </swiper> -->
+      <view class="page-section page-section-spacing swiper">
+      <swiper
+        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+        <block wx:for="{{viewDetails.imagesToArr(habbit.images)}}" wx:key="*this">
+          <swiper-item>
+            <image src="{{item}}" ></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  <!-- <image src="/images/testForViewDetails.jpg" class="image" mode="aspectFill"/> -->
   <view class="content">
     <view class="date">
-      <!-- <text>{{detail.getDate(habbit.date)}}</text> -->
+      <!-- <text>{{viewDetails.getDate(habbit.date)}}</text> -->
       <text>习惯创建时间：{{habbit.date}}</text>
     </view>
     <view class="title">

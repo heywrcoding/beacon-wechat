@@ -1,35 +1,42 @@
-var detail = {
+var viewDetails = {
   getDate: function (date) {
     return getDate(date).toDateString()
   },
   imagesToArr: function (str) {
+    console.log(str)
     return str ? str.split(',') : []
   },
-  mode: function (mode) {
-    if (mode >= 0 && mode < 20) {
-      return modeImg.verySad
-    } else if (mode >= 20 && mode < 40) {
-      return modeImg.sad
-    } else if (mode >= 40 && mode < 60) {
-      return modeImg.normal
-    } else if (mode >= 60 && mode < 80) {
-      return modeImg.happy
-    } else if (mode >= 80 && mode <= 100) {
-      return modeImg.veryHappy
-    }
+  // mode: function (mode) {
+  //   if (mode >= 0 && mode < 20) {
+  //     return modeImg.verySad
+  //   } else if (mode >= 20 && mode < 40) {
+  //     return modeImg.sad
+  //   } else if (mode >= 40 && mode < 60) {
+  //     return modeImg.normal
+  //   } else if (mode >= 60 && mode < 80) {
+  //     return modeImg.happy
+  //   } else if (mode >= 80 && mode <= 100) {
+  //     return modeImg.veryHappy
+  //   }
+  // }
+  viewImgs: function(str){
+    // console.log(str)
+    console.log(typeof(str))
+    return str
   }
 }
 
-modeImg = {
-  verySad: '../Images/verySad.png',
-  sad: '../Images/sad.png',
-  normal: '../Images/normal.png',
-  happy: '../Images/happy.png',
-  veryHappy: '../Images/veryHappy.png'
-}
+// modeImg = {
+//   verySad: '../Images/verySad.png',
+//   sad: '../Images/sad.png',
+//   normal: '../Images/normal.png',
+//   happy: '../Images/happy.png',
+//   veryHappy: '../Images/veryHappy.png'
+// }
 
 module.exports = {
-  getDate: detail.getDate,
-  imagesToArr: detail.imagesToArr,
-  mode: detail.mode
+  getDate: viewDetails.getDate,
+  imagesToArr: viewDetails.imagesToArr,
+  viewImgs: viewDetails.viewImgs
+  // mode: viewDetails.mode
 }

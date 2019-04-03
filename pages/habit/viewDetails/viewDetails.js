@@ -8,6 +8,15 @@ Page({
     indicatorColor: 'rgba(255, 255, 255, 0.5)',
     indicatorActiveColor: 'rgba(255, 255, 255, 1)',
     current: 0,
+    interval: 2000,
+    duration: 500, 
+    vertical: false,
+    autoplay: true,
+    circular: false,
+    interval: 2000,
+    duration: 500,
+    previousMargin: 0,
+    nextMargin: 0,
     habbit: {
       // name: '吃早餐',
       // images: [],
@@ -16,6 +25,7 @@ Page({
       // date: '2019年4月3日',
       // frequency: 0,
       // today: 0,
+      images: '/images/testForViewDetails.jpg,/images/testForViewDetails2.jpg'
     },
     // more: {
     //   black: '../Images/more-black.png',
@@ -29,12 +39,13 @@ Page({
   /**
    * function
    */
-  swiperChange (event) {
-    var current = event.detail.current
-    this.setData({
-      current: current
-    })
-  },
+  // swiperChange (event) {
+  //   console.log(habbit.images)
+  //   var current = event.detail.current
+  //   this.setData({
+  //     current: current
+  //   })
+  // },
   like () {
     if (this.data.habbit.is_liked) return
     let _this = this
@@ -147,7 +158,10 @@ Page({
     this.setData({
       habbit: {
         name: '吃早餐',
-        images: ['../../../images/testForViewDetails.jpg'],
+        // images: [
+        //   '../../../images/testForViewDetails.jpg',
+        //   '../../../images/testForViewDetails2.jpg'],
+        images: '/images/testForViewDetails.jpg,/images/testForViewDetails2.jpg',
         image: '../../../images/testForViewDetails.jpg',
         content: '今天的早餐吃得也很开心呢~',
         date: '2019年4月3日',
@@ -157,7 +171,7 @@ Page({
       current: 0
     })
 
-    console.log(this.data.habbit.images)
+    // console.log(this.data.habbit.images)
   },
 
   /**
