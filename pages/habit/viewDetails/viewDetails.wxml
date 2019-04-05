@@ -1,28 +1,24 @@
-<view class="container">
-  <!-- <swiper class="swiper" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" bindchange="swiperChange" wx:if="{{habbit.images}}">
+<view class="imgContainer">
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" bindchange="swiperChange" wx:if="{{habbit.images}}">
     <block wx:for="{{viewDetails.imagesToArr(habbit.images)}}" wx:key="index">
       <swiper-item>
-        <image src="{{item}}" class="image" mode="aspectFit" bindload="imageLoad"/>
-        <image src="{{habbit.images}}" class="image" mode="aspectFill"/>
+        <image src="{{item}}" class="image" mode="aspectFit" bindload="imageOnLoad"  binderror="imageOnLoadError"/>
       </swiper-item>
     </block>
-  </swiper> -->
-      <view class="page-section page-section-spacing swiper">
-      <swiper
-        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
-        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
-        <block wx:for="{{viewDetails.imagesToArr(habbit.images)}}" wx:key="*this">
-          <swiper-item>
-            <image src="{{item}}" ></image>
-          </swiper-item>
-        </block>
-      </swiper>
-    </view>
-  <!-- <image src="/images/testForViewDetails.jpg" class="image" mode="aspectFill"/> -->
-  <view class="content">
+  </swiper>
+
+<view class="content">
     <view class="date">
-      <!-- <text>{{viewDetails.getDate(habbit.date)}}</text> -->
-      <text>习惯创建时间：{{habbit.date}}</text>
+      <text>该习惯由{{habbit.initiator}}发起，属于{{habbit.taxology}}习惯</text>
+    </view>    
+    <view class="date">
+      <text>用户{{habbit.user}}于{{habbit.date}}开始此习惯。</text>
+    </view>
+    <view class="date" wx:if="{{habbit.today}}">
+      <text>习惯已持续了{{habbit.duration}}天。今日已完成。</text>
+    </view>
+    <view class="date" wx:else="{{habbit.today}}">
+      <text>习惯已持续了{{habbit.duration}}天。今日尚未完成。</text>
     </view>
     <view class="title">
       <text>{{habbit.name}}</text>
@@ -30,76 +26,22 @@
     <view class="text">
       <text>{{habbit.content}}</text>
     </view>
+    <view class='location'>
+      <text>用户{{habbit.user}}最近一次打卡时间为{{habbit.recentClockIn}}</text>
+    </view>
+
     <view class="location">
       <image src="../../../images/location.png" class="image" />
-      <!-- <text>{{habbit.location}}</text> -->
+      <text>{{habbit.location}}</text>
     </view>
   </view>
-  <!-- <view class="mood">
-    <view class="change" wx:if="{{change}}">
-      <image src="../Images/verySad.png" class="image" data-mode="0" bindtap='changeMode' />
-      <image src="../Images/sad.png" class="image" data-mode="25" bindtap='changeMode' />
-      <image src="../Images/normal.png" class="image" data-mode="50" bindtap='changeMode' />
-      <image src="../Images/happy.png" class="image" data-mode="75" bindtap='changeMode' />
-      <image src="../Images/veryHappy.png" class="image" data-mode="100" bindtap='changeMode' />
-    </view>
-    <view class="normal">
-      <image src="{{detail.mode(habbit.mode)}}" class="image" wx:if="{{!change}}" />
-    </view> 
-    <view class="description">
-      <view wx:if="{{change}}"></view>
-      <view wx:if="{{!change}}">
-        <text>{{habbit.mode}}</text>
-        <text class="mode">情绪值</text>
-      </view>
-      <view class="edit" bindtap='change' wx:if="{{habbit.user_id === user.id}}">更改</view> 
-    </view>
-  </view> -->
-  <!-- <view class="discuss">
-    <view class="image">
-      <image src="../Images/discuss.png" />
-    </view>
-    <view class="description">
-      <view>
-        <text>有什么想说的</text>
-      </view>
-    </view>
-  </view> -->
-  <!-- <view class="comment">
-    <view class="title">
-      日记评论
-    </view>
-    <view class="item">
-      <image src="../Images/avatar1.png" class="avatar" />
-      <view class="sub">
-        <view class="des">
-          <text>傻逼</text>
-          <text class="date">19:52</text>
-        </view>
-        <view class="content">
-          看来你有点傻逼
-        </view>
-      </view>
-    </view><view class="item">
-      <image src="../Images/avatar2.png" class="avatar" />
-      <view class="sub">
-        <view class="des">
-          <text class="from">邓国雄</text>
-          <text>回复了</text>
-          <text class="to">傻逼</text>
-          <text class="date">19:52</text>
-        </view>
-        <view class="content">
-          看来你有点傻逼
-        </view>
-      </view>
-    </view>
-  </view> -->
+ 
   <view class="like" bindtap="like" wx:if="{{habbit.user_id !== user.id}}">
     <image src="../../../images/like.png" class="image" wx:if="{{!habbit.is_liked}}" />
     <image src="../../../images/liked.png" class="image" wx:if="{{habbit.is_liked}}" />
   </view>
-  <view class="edit-btn" wx:if="{{habbit.user_id === user.id}}">
+  <!-- <view class="edit-btn" wx:if="{{habbit.user_id === user.id}}"> -->
+  <view class="edit-btn">
     <view bindtap='edit'>
       <image src="../../../images/edit.png" />
       <text>修改习惯</text>

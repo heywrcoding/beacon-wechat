@@ -5,27 +5,27 @@ Page({
    */
   data: {
     indicatorDots: true,
-    indicatorColor: 'rgba(255, 255, 255, 0.5)',
-    indicatorActiveColor: 'rgba(255, 255, 255, 1)',
+    indicatorColor: 'grey',
+    indicatorActiveColor: 'lightblue',
     current: 0,
-    interval: 2000,
-    duration: 500, 
-    vertical: false,
-    autoplay: true,
-    circular: false,
     interval: 2000,
     duration: 500,
     previousMargin: 0,
     nextMargin: 0,
     habbit: {
-      // name: '吃早餐',
-      // images: [],
-      // image: '../../../images/testForViewDetails.jpg',
-      // content: '今天的早餐吃得也很开心呢~',
-      // date: '2019年4月3日',
-      // frequency: 0,
-      // today: 0,
-      images: '/images/testForViewDetails.jpg,/images/testForViewDetails2.jpg'
+      user: 'Leegroup Tan',
+      initiator: 'Leegroup Tan',
+      name: '吃早餐',
+      taxology: '生活',
+      images: '/images/testForViewDetails.jpg,/images/testForViewDetails2.jpg',
+      image: '../../../images/testForViewDetails.jpg',
+      content: '今天的早餐吃得也很开心呢~',
+      date: '2019年4月3日9时35分',
+      recentClockIn: '2019年4月5日16时5分',
+      location: '电子科技大学，成都，四川',
+      frequency: 0,
+      today: false,
+      duration: 35
     },
     // more: {
     //   black: '../Images/more-black.png',
@@ -39,13 +39,18 @@ Page({
   /**
    * function
    */
-  // swiperChange (event) {
-  //   console.log(habbit.images)
-  //   var current = event.detail.current
-  //   this.setData({
-  //     current: current
-  //   })
-  // },
+  imageOnLoad(ev) {
+    console.log(`图片加载成功，width: ${ev.detail.width}; height: ${ev.detail.height}`)
+  },
+  imageOnLoadError() {
+    console.log('图片加载失败')
+  },
+  swiperChange (event) {
+    var current = event.detail.current
+    this.setData({
+      current: current
+    })
+  },
   like () {
     if (this.data.habbit.is_liked) return
     let _this = this
@@ -80,12 +85,13 @@ Page({
     }
     getApp().data.savedhabbit = habbit
     wx.redirectTo({
-      url: '../Add/Add'
+      url: '../addHabbit/addHabbit'
     })
   },
 
   del: function () {
-    let { uid, timestamp,  token} = getApp().data.key
+    console.log("del")
+    // let { uid, timestamp,  token} = getApp().data.key
     let habbit_id = this.data.habbit.id
     wx.showModal({
       title: '删除',
@@ -154,24 +160,6 @@ Page({
     //   user: getApp().data.user
     // })
     // console.log(habbit)
-
-    this.setData({
-      habbit: {
-        name: '吃早餐',
-        // images: [
-        //   '../../../images/testForViewDetails.jpg',
-        //   '../../../images/testForViewDetails2.jpg'],
-        images: '/images/testForViewDetails.jpg,/images/testForViewDetails2.jpg',
-        image: '../../../images/testForViewDetails.jpg',
-        content: '今天的早餐吃得也很开心呢~',
-        date: '2019年4月3日',
-        frequency: 0,
-        today: 0,
-      },
-      current: 0
-    })
-
-    // console.log(this.data.habbit.images)
   },
 
   /**

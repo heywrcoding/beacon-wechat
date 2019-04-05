@@ -43,5 +43,6 @@
         "selectedIconPath": "images/Profile-selected.png"
       }
     ]
-  }
+  },
+  "debug": true
 }

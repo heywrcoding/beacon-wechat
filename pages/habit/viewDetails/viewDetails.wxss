@@ -1,4 +1,4 @@
-.container {
+.imgContainer {
   position: relative;
   width: 100%;
   min-height: 90%;
@@ -53,7 +53,7 @@
   margin-right: 20rpx;
 }
 
-.container .mood, .container .discuss {
+.imgContainer .mood, .imgContainer .discuss {
   position: relative;
   display: flex;
   display: -webkit-flex;
@@ -64,7 +64,7 @@
   font-size: 29rpx;
 }
 
-.container .discuss {
+.imgContainer .discuss {
   margin-top: 0;
 }
 
