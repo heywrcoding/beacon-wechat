@@ -1,7 +1,3 @@
 <view>
   <habit-list></habit-list>
-
-  <view class="add" bindtap='goAdd'>
-    <image src="../../../images/add.png" class="image" />
-  </view>
 </view>
