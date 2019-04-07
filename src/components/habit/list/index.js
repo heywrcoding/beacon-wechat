@@ -54,7 +54,7 @@ Component({
         case 'item':
           // go to detail
           wx.navigateTo({
-            url: `/pages/habit/detail/index?id=${id}`,
+            url: `/src/pages/habit/detail/index?id=${id}`,
           })
           break;
         case 'decrease':

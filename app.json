@@ -1,10 +1,10 @@
 {
   "pages":[
-    "pages/home/index",
-    "pages/habit/index/index",
-    "pages/habit/detail/index",
-    "pages/aim/index/index",
-    "pages/profile/index/index"
+    "src/pages/home/index",
+    "src/pages/habit/index/index",
+    "src/pages/habit/detail/index",
+    "src/pages/aim/index/index",
+    "src/pages/profile/index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -18,25 +18,25 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/home/index",
+        "pagePath": "src/pages/home/index",
         "text": "主页",
         "iconPath": "images/tabbar/home.png",
         "selectedIconPath": "images/tabbar/home-selected.png"
       },
       {
-        "pagePath": "pages/habit/index/index",
+        "pagePath": "src/pages/habit/index/index",
         "text": "习惯",
         "iconPath": "images/tabbar/habit.png",
         "selectedIconPath": "images/tabbar/habit-selected.png"
       },
       {
-        "pagePath": "pages/aim/index/index",
+        "pagePath": "src/pages/aim/index/index",
         "text": "目标",
         "iconPath": "images/tabbar/aim.png",
         "selectedIconPath": "images/tabbar/aim-selected.png"
       },
       {
-        "pagePath": "pages/profile/index/index",
+        "pagePath": "src/pages/profile/index/index",
         "text": "我的",
         "iconPath": "images/tabbar/profile.png",
         "selectedIconPath": "images/tabbar/profile-selected.png"

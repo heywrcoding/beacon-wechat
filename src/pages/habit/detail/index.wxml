@@ -31,23 +31,23 @@
     </view>
 
     <view class="location">
-      <image src="../../../images/location.png" class="image" />
+      <image src="../../../../images/location.png" class="image" />
       <text>{{habbit.location}}</text>
     </view>
   </view>
  
   <view class="like" bindtap="like" wx:if="{{habbit.user_id !== user.id}}">
-    <image src="../../../images/like.png" class="image" wx:if="{{!habbit.is_liked}}" />
-    <image src="../../../images/liked.png" class="image" wx:if="{{habbit.is_liked}}" />
+    <image src="../../../../images/like.png" class="image" wx:if="{{!habbit.is_liked}}" />
+    <image src="../../../../images/liked.png" class="image" wx:if="{{habbit.is_liked}}" />
   </view>
   <!-- <view class="edit-btn" wx:if="{{habbit.user_id === user.id}}"> -->
   <view class="edit-btn">
     <view bindtap='edit'>
-      <image src="../../../images/edit.png" />
+      <image src="../../../../images/edit.png" />
       <text>修改习惯</text>
     </view>
     <view bindtap='del'>
-      <image src="../../../images/delete.png" />
+      <image src="../../../../images/delete.png" />
       <text>删除习惯</text>
     </view>
   </view>
