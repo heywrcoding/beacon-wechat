@@ -55,6 +55,9 @@ Component({
           // go to detail
           // TODO: jump to detail page
           console.log('item', idx);
+          wx.navigateTo({
+            url: '../viewDetails/viewDetails?id=' + idx,
+          })
           break;
         case 'decrease':
           this.decrease(idx);
@@ -62,7 +65,7 @@ Component({
         default:
           break;
       }
-    }
+    },
   },
   lifetimes: {
     attached() {

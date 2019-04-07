@@ -2,6 +2,18 @@ const http = require('./utils/http.js');
 
 //app.js
 App({
+
+  lodash: {
+    groupBy: require('./utils/lodash.groupby/index.js'),
+    orderBy: require('./utils/lodash.orderby/index.js'),
+    find: require('./utils/lodash.find/index.js'),
+    filter: require('./utils/lodash.filter/index.js'),
+    forEach: require('./utils/lodash.foreach/index.js'),
+    values: require('./utils/lodash.values/index.js'),
+    keys: require('./utils/lodash.keys/index.js'),
+    map: require('./utils/lodash.map/index.js')
+  },
+  
   onLaunch: function () {
     // 获取用户信息
     wx.getSetting({
