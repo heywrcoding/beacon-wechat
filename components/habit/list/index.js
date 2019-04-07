@@ -56,7 +56,7 @@ Component({
           // TODO: jump to detail page
           console.log('item', idx);
           wx.navigateTo({
-            url: '../viewDetails/viewDetails?id=' + idx,
+            url: `/pages/habit/detail/index?id=${id}`,
           })
           break;
         case 'decrease':

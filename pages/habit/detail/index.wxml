@@ -53,4 +53,4 @@
   </view>
 </view>
 
-<wxs module="viewDetails" src="./viewDetails.wxs"></wxs>
+<wxs module="viewDetails" src="./index.wxs"></wxs>
