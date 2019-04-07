@@ -8,7 +8,7 @@ Page({
     duration: 500,
     previousMargin: 0,
     nextMargin: 0,
-    habbit: {
+    habit: {
       user: 'Leegroup Tan',
       initiator: 'Leegroup Tan',
       name: '吃早餐',
@@ -45,23 +45,23 @@ Page({
     });
   },
   like() {
-    if (this.data.habbit.is_liked) return;
+    if (this.data.habit.is_liked) return;
     const { uid, timestamp, token } = getApp().data.key;
-    const habitId = this.data.habbit.id;
+    const habitId = this.data.habit.id;
     wx.request({
-      url: `${getApp().data.domain}habbits/like`,
+      url: `${getApp().data.domain}habits/like`,
       method: 'POST',
       data: {
         uid, timestamp, token, habitId,
       },
       success(res) {
         if (res.data.code === 0) {
-          const { habbit } = this.data;
-          habbit.is_liked = 1;
+          const { habit } = this.data;
+          habit.is_liked = 1;
           this.setData({
-            habbit,
+            habit,
           });
-          console.log(this.data.habbit);
+          console.log(this.data.habit);
         } else {
           console.log(res);
         }
@@ -73,20 +73,20 @@ Page({
   },
 
   edit() {
-    const { habbit } = this.data;
-    if (typeof (habbit.images) === 'string') {
-      habbit.images = habbit.images ? habbit.images.split(',') : [];
+    const { habit } = this.data;
+    if (typeof (habit.images) === 'string') {
+      habit.images = habit.images ? habit.images.split(',') : [];
     }
-    getApp().data.savedhabbit = habbit;
+    getApp().data.savedhabit = habit;
     wx.redirectTo({
-      url: '../addHabbit/addHabbit',
+      url: '../addhabit/addhabit',
     });
   },
 
   del() {
     console.log('del');
     // let { uid, timestamp,  token} = getApp().data.key
-    const habitId = this.data.habbit.id;
+    const habitId = this.data.habit.id;
     wx.showModal({
       title: '删除',
       content: '是否删除该习惯？',
@@ -94,7 +94,7 @@ Page({
         console.log(res);
         if (res.confirm) {
           wx.request({
-            url: `${getApp().data.domain}habbits/delete`,
+            url: `${getApp().data.domain}habits/delete`,
             method: 'GET',
             data: {
               uid, timestamp, token, habitId,
@@ -116,43 +116,43 @@ Page({
 
   changeMode(event) {
     const { mode } = event.currentTarget.dataset;
-    const { habbit } = this.data;
-    habbit.mode = mode;
-    console.log(habbit.mode);
+    const { habit } = this.data;
+    habit.mode = mode;
+    console.log(habit.mode);
     this.setData({
-      habbit,
+      habit,
       change: false,
     });
-    this.updatehabbit();
+    this.updatehabit();
   },
 
-  updatehabbit() {
+  updatehabit() {
     let { images } = this.data;
     if (typeof (images) === 'object') {
       images = images.join();
     }
     const data = {
-      habitId: this.data.habbit.id,
-      date: this.data.habbit.date,
-      title: this.data.habbit.title,
-      content: this.data.habbit.content,
+      habitId: this.data.habit.id,
+      date: this.data.habit.date,
+      title: this.data.habit.title,
+      content: this.data.habit.content,
       images,
-      mode: parseInt(this.data.habbit.mode),
+      mode: parseInt(this.data.habit.mode),
     };
-    getApp().edithabbit(data);
+    getApp().edithabit(data);
   },
 
   onLoad(option) {
     console.log(option);
     // let find = getApp().lodash.find
-    // let habbit = find(getApp().data.habbits, (val) => {
+    // let habit = find(getApp().data.habits, (val) => {
     //   return val.id === Number(options.id)
     // })
     // this.setData({
-    //   habbit: habbit,
+    //   habit: habit,
     //   user: getApp().data.user
     // })
-    // console.log(habbit)
+    // console.log(habit)
   },
 
   /**

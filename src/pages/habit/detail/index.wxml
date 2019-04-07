@@ -1,6 +1,6 @@
 <view class="imgContainer">
-  <swiper class="swiper" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" bindchange="swiperChange" wx:if="{{habbit.images}}">
-    <block wx:for="{{viewDetails.imagesToArr(habbit.images)}}" wx:key="index">
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" bindchange="swiperChange" wx:if="{{habit.images}}">
+    <block wx:for="{{viewDetails.imagesToArr(habit.images)}}" wx:key="index">
       <swiper-item>
         <image src="{{item}}" class="image" mode="aspectFit" bindload="imageOnLoad"  binderror="imageOnLoadError"/>
       </swiper-item>
@@ -9,38 +9,38 @@
 
   <view class="content">
     <view class="date">
-      <text>该习惯由{{habbit.initiator}}发起，属于{{habbit.taxology}}习惯</text>
+      <text>该习惯由{{habit.initiator}}发起，属于{{habit.taxology}}习惯</text>
     </view>    
     <view class="date">
-      <text>用户{{habbit.user}}于{{habbit.date}}开始此习惯。</text>
+      <text>用户{{habit.user}}于{{habit.date}}开始此习惯。</text>
     </view>
-    <view class="date" wx:if="{{habbit.today}}">
-      <text>习惯已持续了{{habbit.duration}}天。今日已完成。</text>
+    <view class="date" wx:if="{{habit.today}}">
+      <text>习惯已持续了{{habit.duration}}天。今日已完成。</text>
     </view>
-    <view class="date" wx:else="{{habbit.today}}">
-      <text>习惯已持续了{{habbit.duration}}天。今日尚未完成。</text>
+    <view class="date" wx:else="{{habit.today}}">
+      <text>习惯已持续了{{habit.duration}}天。今日尚未完成。</text>
     </view>
     <view class="title">
-      <text>{{habbit.name}}</text>
+      <text>{{habit.name}}</text>
     </view>
     <view class="text">
-      <text>{{habbit.content}}</text>
+      <text>{{habit.content}}</text>
     </view>
     <view class='location'>
-      <text>用户{{habbit.user}}最近一次打卡时间为{{habbit.recentClockIn}}</text>
+      <text>用户{{habit.user}}最近一次打卡时间为{{habit.recentClockIn}}</text>
     </view>
 
     <view class="location">
       <image src="../../../../images/location.png" class="image" />
-      <text>{{habbit.location}}</text>
+      <text>{{habit.location}}</text>
     </view>
   </view>
  
-  <view class="like" bindtap="like" wx:if="{{habbit.user_id !== user.id}}">
-    <image src="../../../../images/like.png" class="image" wx:if="{{!habbit.is_liked}}" />
-    <image src="../../../../images/liked.png" class="image" wx:if="{{habbit.is_liked}}" />
+  <view class="like" bindtap="like" wx:if="{{habit.user_id !== user.id}}">
+    <image src="../../../../images/like.png" class="image" wx:if="{{!habit.is_liked}}" />
+    <image src="../../../../images/liked.png" class="image" wx:if="{{habit.is_liked}}" />
   </view>
-  <!-- <view class="edit-btn" wx:if="{{habbit.user_id === user.id}}"> -->
+  <!-- <view class="edit-btn" wx:if="{{habit.user_id === user.id}}"> -->
   <view class="edit-btn">
     <view bindtap='edit'>
       <image src="../../../../images/edit.png" />
