@@ -45,8 +45,7 @@ Component({
       });
     },
     habitListTap(e) {
-      const id = e.currentTarget.dataset.id;
-      const idx = e.currentTarget.dataset.idx;
+      const { id, idx } = e.currentTarget.dataset;
       switch (e.target.dataset.type) {
         case 'increase':
           this.increase(idx);
@@ -55,7 +54,7 @@ Component({
           // go to detail
           wx.navigateTo({
             url: `/src/pages/habit/detail/index?id=${id}`,
-          })
+          });
           break;
         case 'decrease':
           this.decrease(idx);
@@ -68,6 +67,6 @@ Component({
   lifetimes: {
     attached() {
       this.getData();
-    }
+    },
   },
 });

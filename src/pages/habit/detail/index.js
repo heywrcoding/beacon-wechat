@@ -21,7 +21,7 @@ Page({
       location: '电子科技大学，成都，四川',
       frequency: 0,
       today: false,
-      duration: 35
+      duration: 35,
     },
     // more: {
     //   black: '../Images/more-black.png',
@@ -29,118 +29,121 @@ Page({
     // },
     change: false,
     modeAnimation: '',
-    user: {}
+    user: {},
   },
   // methods
   imageOnLoad(ev) {
-    console.log(`图片加载成功，width: ${ev.detail.width}; height: ${ev.detail.height}`)
+    console.log(`图片加载成功，width: ${ev.detail.width}; height: ${ev.detail.height}`);
   },
   imageOnLoadError() {
-    console.log('图片加载失败')
+    console.log('图片加载失败');
   },
-  swiperChange (event) {
-    var current = event.detail.current
+  swiperChange(event) {
+    const { current } = event.detail;
     this.setData({
-      current: current
-    })
+      current,
+    });
   },
-  like () {
-    if (this.data.habbit.is_liked) return
-    let _this = this
-    let { uid, timestamp, token } = getApp().data.key
-    let habbit_id = this.data.habbit.id
+  like() {
+    if (this.data.habbit.is_liked) return;
+    const { uid, timestamp, token } = getApp().data.key;
+    const habitId = this.data.habbit.id;
     wx.request({
-      url: getApp().data.domain + 'habbits/like',
+      url: `${getApp().data.domain}habbits/like`,
       method: 'POST',
-      data: { uid, timestamp, token, habbit_id },
-      success: function (res) {
+      data: {
+        uid, timestamp, token, habitId,
+      },
+      success(res) {
         if (res.data.code === 0) {
-          let habbit = _this.data.habbit
-          habbit.is_liked = 1
-          _this.setData({
-            habbit: habbit
-          })
-          console.log(_this.data.habbit)
+          const { habbit } = this.data;
+          habbit.is_liked = 1;
+          this.setData({
+            habbit,
+          });
+          console.log(this.data.habbit);
         } else {
-          console.log(res)
+          console.log(res);
         }
       },
-      fail: function (err) {
-        console.log(err)
-      }
-    })
+      fail(err) {
+        console.log(err);
+      },
+    });
   },
 
-  edit: function () {
-    let habbit = this.data.habbit
-    if (typeof(habbit.images) === 'string') {
-      habbit.images = habbit.images ? habbit.images.split(',') : []
+  edit() {
+    const { habbit } = this.data;
+    if (typeof (habbit.images) === 'string') {
+      habbit.images = habbit.images ? habbit.images.split(',') : [];
     }
-    getApp().data.savedhabbit = habbit
+    getApp().data.savedhabbit = habbit;
     wx.redirectTo({
-      url: '../addHabbit/addHabbit'
-    })
+      url: '../addHabbit/addHabbit',
+    });
   },
 
-  del: function () {
-    console.log("del")
+  del() {
+    console.log('del');
     // let { uid, timestamp,  token} = getApp().data.key
-    let habbit_id = this.data.habbit.id
+    const habitId = this.data.habbit.id;
     wx.showModal({
       title: '删除',
       content: '是否删除该习惯？',
-      success (res) {
-        console.log(res)
+      success(res) {
+        console.log(res);
         if (res.confirm) {
           wx.request({
-            url: getApp().data.domain + 'habbits/delete',
+            url: `${getApp().data.domain}habbits/delete`,
             method: 'GET',
-            data: { uid, timestamp, token, habbit_id },
-            complete: function () {
-              wx.navigateBack()
-            }
-          })
+            data: {
+              uid, timestamp, token, habitId,
+            },
+            complete() {
+              wx.navigateBack();
+            },
+          });
         }
-      }
-    })
-  },
-  
-  change: function () {
-    this.setData({
-      change: !this.data.change
-    })
+      },
+    });
   },
 
-  changeMode: function (event) {
-    let mode = event.currentTarget.dataset.mode
-    let habbit = this.data.habbit
-    habbit.mode = mode
-    console.log(habbit.mode)
+  change() {
     this.setData({
-      habbit: habbit,
-      change: false
-    })
-    this.updatehabbit()
+      change: !this.data.change,
+    });
   },
 
-  updatehabbit: function () {
-    let images = this.data.images
+  changeMode(event) {
+    const { mode } = event.currentTarget.dataset;
+    const { habbit } = this.data;
+    habbit.mode = mode;
+    console.log(habbit.mode);
+    this.setData({
+      habbit,
+      change: false,
+    });
+    this.updatehabbit();
+  },
+
+  updatehabbit() {
+    let { images } = this.data;
     if (typeof (images) === 'object') {
-      images = images.join()
+      images = images.join();
     }
-    let data = {
-      habbit_id: this.data.habbit.id,
+    const data = {
+      habitId: this.data.habbit.id,
       date: this.data.habbit.date,
       title: this.data.habbit.title,
       content: this.data.habbit.content,
-      images: images,
-      mode: parseInt(this.data.habbit.mode)
-    }
-    getApp().edithabbit(data)
+      images,
+      mode: parseInt(this.data.habbit.mode),
+    };
+    getApp().edithabbit(data);
   },
 
-  onLoad: function (option) {
-    console.log(option)
+  onLoad(option) {
+    console.log(option);
     // let find = getApp().lodash.find
     // let habbit = find(getApp().data.habbits, (val) => {
     //   return val.id === Number(options.id)
@@ -155,25 +158,25 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow() {
     wx.setNavigationBarTitle({
       title: '习惯详情',
-    })
+    });
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide() {
     wx.setNavigationBarTitle({
       title: '修改习惯',
-    })
+    });
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    return getApp().data.shareMenu
-  }
-})
+  onShareAppMessage() {
+    return getApp().data.shareMenu;
+  },
+});
