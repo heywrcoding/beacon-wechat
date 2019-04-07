@@ -1,4 +1,1 @@
-Page({
-
-  // functions
-});
+Page({});

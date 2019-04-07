@@ -5,7 +5,6 @@
     "pages/habit/viewDetails/viewDetails",
     "pages/aim/index/index",
     "pages/profile/index/index"
-    
   ],
   "window":{
     "backgroundTextStyle":"light",

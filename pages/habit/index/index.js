@@ -1,7 +1,5 @@
 Page({
-
-
-  // fuctions
+  // methods
   goAdd: function () {
     if (!getApp().data.hasAuthorize) {
       wx.switchTab({

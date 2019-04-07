@@ -7,7 +7,7 @@
     </block>
   </swiper>
 
-<view class="content">
+  <view class="content">
     <view class="date">
       <text>该习惯由{{habbit.initiator}}发起，属于{{habbit.taxology}}习惯</text>
     </view>    

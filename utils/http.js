@@ -47,4 +47,4 @@ module.exports = {
   post: _post,
   put: _put,
   delete: _delete,
-}
+};

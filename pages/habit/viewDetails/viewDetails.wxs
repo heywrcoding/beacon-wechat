@@ -1,15 +1,15 @@
 var viewDetails = {
   imagesToArr: function (str) {
-    console.log(str)
-    return str ? str.split(',') : []
+    console.log(str);
+    return str ? str.split(',') : [];
   },
   viewImgs: function(str){
-    console.log(typeof(str))
-    return str
+    console.log(typeof(str));
+    return str;
   }
-}
+};
 
 module.exports = {
   imagesToArr: viewDetails.imagesToArr,
-  viewImgs: viewDetails.viewImgs
-}
+  viewImgs: viewDetails.viewImgs,
+};
