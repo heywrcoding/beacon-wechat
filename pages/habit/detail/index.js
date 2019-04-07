@@ -1,7 +1,4 @@
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     indicatorDots: true,
     indicatorColor: 'grey',
@@ -34,10 +31,7 @@ Page({
     modeAnimation: '',
     user: {}
   },
-
-  /**
-   * function
-   */
+  // methods
   imageOnLoad(ev) {
     console.log(`图片加载成功，width: ${ev.detail.width}; height: ${ev.detail.height}`)
   },
@@ -145,9 +139,6 @@ Page({
     getApp().edithabbit(data)
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (option) {
     console.log(option)
     // let find = getApp().lodash.find
@@ -159,13 +150,6 @@ Page({
     //   user: getApp().data.user
     // })
     // console.log(habbit)
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
   },
 
   /**
@@ -184,27 +168,6 @@ Page({
     wx.setNavigationBarTitle({
       title: '修改习惯',
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
   },
 
   /**
