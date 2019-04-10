@@ -24,8 +24,7 @@ App({
                           code: res.code,
                           nick_name: this.globalData.userInfo.nickName
                         }).then(r => {
-                          console.log(r.data);
-                          wx.setStorageSync('Authorization', r.data);
+                          wx.setStorageSync('Authorization', r.data.token);
                         }).catch(e => {
                           console.log(e);
                         });

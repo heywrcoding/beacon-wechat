@@ -1,4 +1,4 @@
-const baseURL = 'http://192.168.43.182:8080/';
+const baseURL = 'https://wx.lagranmoon.com/';
 
 const http = (url = '', param = {}, other = {}) => {
   const token = wx.getStorageSync('Authorization') || null;// intercept to add token
@@ -16,12 +16,13 @@ const http = (url = '', param = {}, other = {}) => {
   return new Promise((resolve, reject) => {
     wx.request({
       ...request,
-      success: res => {
-        resolve(res);
-      },
-      fail: e => {
-        reject(e);
-      },
+      complete: (res) => {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          resolve(res.data);
+        } else {
+          reject(res.data);
+        }
+      }
     });
   });
 };
