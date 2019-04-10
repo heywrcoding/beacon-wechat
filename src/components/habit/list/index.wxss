@@ -2,14 +2,14 @@
 .list-container {
   display: flex;
   align-items: center;
-  height: 150rpx;
+  height: 180rpx;
 }
 
 .btn-box {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20%;
+  width: 16%;
   height: 100%;
   background: #ffb6e1;
   outline: solid 1rpx #ff9dd6;
@@ -25,15 +25,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 60%;
+  width: 84%;
   height: 100%;
   background: #f0fcff;
   outline: solid 1rpx #c2ccd0;
 }
 
-.addtional {
+.habit-count {
   font-size: 24rpx;
   color: #808080;
+}
+
+.increase {
+  font-size: 84rpx;
+  color: white;
 }
 
 .ripple {

@@ -1,3 +1,5 @@
+const http = require('../../../../utils/http.js');
+
 Component({
   data: {
     list: [],
@@ -5,44 +7,23 @@ Component({
   methods: {
     getData() {
       // send initial http request here
-      // TODO: get initial data from backend
-      console.log('get data');
-      this.setData({
-        list: [{
-          id: 0,
-          name: '吃早餐',
-          frequency: 0,
-          today: 0,
-        }, {
-          id: 1,
-          name: '20分钟有氧运动',
-          frequency: 0,
-          today: 0,
-        }, {
-          id: 2,
-          name: '处理邮件',
-          frequency: 0,
-          today: 0,
-        }],
+      http.get('habit').then(res => {
+        this.setData({
+          list: res.data,
+        });
       });
     },
     increase(idx) {
       console.log('increase', idx);
       const nlist = this.data.list;
-      nlist[idx].today++;
-      nlist[idx].frequency++;
+      nlist[idx].count++;
       this.setData({
         list: nlist,
       });
-    },
-    decrease(idx) {
-      console.log('decrease', idx);
-      const nlist = this.data.list;
-      nlist[idx].today--;
-      nlist[idx].frequency--;
-      this.setData({
-        list: nlist,
-      });
+      // TODO: wait for backend
+      // http.post(`habit/${nlist[idx].id}`).then(res => {
+      //   console.log(res.data);
+      // });
     },
     habitListTap(e) {
       const { id, idx } = e.currentTarget.dataset;
@@ -55,9 +36,6 @@ Component({
           wx.navigateTo({
             url: `/src/pages/habit/detail/index?id=${id}`,
           });
-          break;
-        case 'decrease':
-          this.decrease(idx);
           break;
         default:
           break;

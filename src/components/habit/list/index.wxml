@@ -9,11 +9,10 @@
     wx:for-index="idx"
     wx:for-item="item"
   >
-    <view class="btn-box ripple" data-type="increase">increase</view>
     <view class="content-box ripple" data-type="item">
-      <view data-type="item">{{item.name}}</view>
-      <view class="addtional" data-type="item"> >>{{item.today}}</view>
+      <view data-type="item">{{item.title}}</view>
+      <view class="habit-count" data-type="item"> >>{{item.count}}</view>
     </view>
-    <view class="btn-box ripple" data-type="decrease">decrease</view>
+    <view class="btn-box ripple increase" data-type="increase">+</view>
   </view>
 </view>
