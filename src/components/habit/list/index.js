@@ -7,7 +7,7 @@ Component({
   methods: {
     getData() {
       // send initial http request here
-      http.get('habit').then(res => {
+      http.get('habit').then((res) => {
         this.setData({
           list: res.data,
         });
