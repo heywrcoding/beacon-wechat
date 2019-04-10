@@ -1,37 +1,34 @@
+const http = require('../../../../utils/http.js');
+
 Page({
   data: {
-    indicatorDots: true,
-    indicatorColor: 'grey',
-    indicatorActiveColor: 'lightblue',
-    current: 0,
-    interval: 2000,
-    duration: 500,
-    previousMargin: 0,
-    nextMargin: 0,
-    habit: {
-      user: 'Leegroup Tan',
-      initiator: 'Leegroup Tan',
-      name: '吃早餐',
-      taxology: '生活',
-      images: '../../../../images/testForViewDetails.jpg,../../../../images/testForViewDetails2.jpg',
-      image: '../../../../images/testForViewDetails.jpg',
-      content: '今天的早餐吃得也很开心呢~',
-      date: '2019年4月3日9时35分',
-      recentClockIn: '2019年4月5日16时5分',
-      location: '电子科技大学，成都，四川',
-      frequency: 0,
-      today: false,
-      duration: 35,
-    },
-    // more: {
-    //   black: '../Images/more-black.png',
-    //   white: '../Images/more-white.png'
-    // },
-    change: false,
-    modeAnimation: '',
-    user: {},
+    // indicatorDots: true,
+    // indicatorColor: 'grey',
+    // indicatorActiveColor: 'lightblue',
+    // current: 0,
+    // interval: 2000,
+    // duration: 500,
+    // previousMargin: 0,
+    // nextMargin: 0,
+    isCreateMode: false,
+    isEditMode: false,
+    habit: null,
   },
+
   // methods
+  getData() {
+    console.log(this.data);
+    http.get(`habit/${this.data.habit.id}`).then((res) => {
+      console.log(res.data);
+      this.setData({
+        habit: {
+          ...this.data.habit,
+          ...res.data,
+        },
+      });
+      console.log(this.data);
+    });
+  },
   imageOnLoad(ev) {
     console.log(`图片加载成功，width: ${ev.detail.width}; height: ${ev.detail.height}`);
   },
@@ -44,115 +41,54 @@ Page({
       current,
     });
   },
-  like() {
-    if (this.data.habit.is_liked) return;
-    const { uid, timestamp, token } = getApp().data.key;
-    const habitId = this.data.habit.id;
-    wx.request({
-      url: `${getApp().data.domain}habits/like`,
-      method: 'POST',
-      data: {
-        uid, timestamp, token, habitId,
-      },
-      success(res) {
-        if (res.data.code === 0) {
-          const { habit } = this.data;
-          habit.is_liked = 1;
-          this.setData({
-            habit,
-          });
-          console.log(this.data.habit);
-        } else {
-          console.log(res);
-        }
-      },
-      fail(err) {
-        console.log(err);
-      },
-    });
-  },
+  // like() {
+  //   if (this.data.habit.is_liked) return;
+  //   const { uid, timestamp, token } = getApp().data.key;
+  //   const habitId = this.data.habit.id;
+  //   wx.request({
+  //     url: `${getApp().data.domain}habits/like`,
+  //     method: 'POST',
+  //     data: {
+  //       uid, timestamp, token, habitId,
+  //     },
+  //     success(res) {
+  //       if (res.data.code === 0) {
+  //         const { habit } = this.data;
+  //         habit.is_liked = 1;
+  //         this.setData({
+  //           habit,
+  //         });
+  //         console.log(this.data.habit);
+  //       } else {
+  //         console.log(res);
+  //       }
+  //     },
+  //     fail(err) {
+  //       console.log(err);
+  //     },
+  //   });
+  // },
 
   edit() {
-    const { habit } = this.data;
-    if (typeof (habit.images) === 'string') {
-      habit.images = habit.images ? habit.images.split(',') : [];
-    }
-    getApp().data.savedhabit = habit;
-    wx.redirectTo({
-      url: '../addhabit/addhabit',
-    });
+    // TODO: change into edit mode
   },
 
   del() {
-    console.log('del');
-    // let { uid, timestamp,  token} = getApp().data.key
-    const habitId = this.data.habit.id;
-    wx.showModal({
-      title: '删除',
-      content: '是否删除该习惯？',
-      success(res) {
-        console.log(res);
-        if (res.confirm) {
-          wx.request({
-            url: `${getApp().data.domain}habits/delete`,
-            method: 'GET',
-            data: {
-              uid, timestamp, token, habitId,
-            },
-            complete() {
-              wx.navigateBack();
-            },
-          });
-        }
-      },
-    });
-  },
-
-  change() {
-    this.setData({
-      change: !this.data.change,
-    });
-  },
-
-  changeMode(event) {
-    const { mode } = event.currentTarget.dataset;
-    const { habit } = this.data;
-    habit.mode = mode;
-    console.log(habit.mode);
-    this.setData({
-      habit,
-      change: false,
-    });
-    this.updatehabit();
-  },
-
-  updatehabit() {
-    let { images } = this.data;
-    if (typeof (images) === 'object') {
-      images = images.join();
-    }
-    const data = {
-      habitId: this.data.habit.id,
-      date: this.data.habit.date,
-      title: this.data.habit.title,
-      content: this.data.habit.content,
-      images,
-      mode: parseInt(this.data.habit.mode),
-    };
-    getApp().edithabit(data);
+    // TODO: wait for backend delete api
   },
 
   onLoad(option) {
-    console.log(option);
-    // let find = getApp().lodash.find
-    // let habit = find(getApp().data.habits, (val) => {
-    //   return val.id === Number(options.id)
-    // })
-    // this.setData({
-    //   habit: habit,
-    //   user: getApp().data.user
-    // })
-    // console.log(habit)
+    console.log('-----', option);
+    if (option.id !== '__new__') {
+      this.setData({
+        habit: { id: option.id },
+      });
+    } else {
+      this.setData({
+        isCreateMode: true,
+      });
+    }
+    this.getData();
   },
 
   /**

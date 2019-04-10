@@ -1,18 +1,31 @@
 <view class="imgContainer">
-  <swiper class="swiper" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" bindchange="swiperChange" wx:if="{{habit.images}}">
+  <swiper
+    class="swiper"
+    indicator-dots="{{indicatorDots}}"
+    indicator-color="{{indicatorColor}}"
+    indicator-active-color="{{indicatorActiveColor}}"
+    bindchange="swiperChange"
+    wx:if="{{habit.images}}"
+  >
     <block wx:for="{{viewDetails.imagesToArr(habit.images)}}" wx:key="index">
       <swiper-item>
-        <image src="{{item}}" class="image" mode="aspectFit" bindload="imageOnLoad"  binderror="imageOnLoadError"/>
+        <image
+          src="{{item}}"
+          class="image"
+          mode="aspectFit"
+          bindload="imageOnLoad"
+          binderror="imageOnLoadError"
+        />
       </swiper-item>
     </block>
   </swiper>
 
-  <view class="content">
+  <!-- <view class="content">
     <view class="date">
       <text>该习惯由{{habit.initiator}}发起，属于{{habit.taxology}}习惯</text>
-    </view>    
+    </view>
     <view class="date">
-      <text>用户{{habit.user}}于{{habit.date}}开始此习惯。</text>
+      <text>用户{{habit.user}}于{{habit.create_time}}开始此习惯。</text>
     </view>
     <view class="date" wx:if="{{habit.today}}">
       <text>习惯已持续了{{habit.duration}}天。今日已完成。</text>
@@ -21,25 +34,55 @@
       <text>习惯已持续了{{habit.duration}}天。今日尚未完成。</text>
     </view>
     <view class="title">
-      <text>{{habit.name}}</text>
+      <text>{{habit.title}}</text>
     </view>
     <view class="text">
       <text>{{habit.content}}</text>
     </view>
-    <view class='location'>
-      <text>用户{{habit.user}}最近一次打卡时间为{{habit.recentClockIn}}</text>
+  </view> -->
+  <form>
+    <view>
+      <view>标题</view>
+      <input
+        value="{{habit.title}}"
+        placeholder="习惯的标题"
+        disabled="{{isEditmode}}"
+      />
     </view>
-
-    <view class="location">
-      <image src="../../../../images/location.png" class="image" />
-      <text>{{habit.location}}</text>
+    <view>
+      <view>描述</view>
+      <input
+        value="{{habit.title}}"
+        placeholder="习惯的描述"
+        disabled="{{isEditmode}}"
+      />
     </view>
-  </view>
+    <view>
+      <view>重复频率</view>
+      <input
+        value="{{habit.frequency}}"
+        placeholder="每x天"
+        disabled="{{isEditmode}}"
+      />
+    </view>
+    <view>
+      <view>持续时间</view>
+      <input
+        value="{{habit.duration}}"
+        placeholder="天数"
+        disabled="{{isEditmode}}"
+      />
+    </view>
+    <view wx:if="{{!isCreateMode}}">
+      <view>创建时间</view>
+      <text>{{habit.create_time}}</text>
+    </view>
+  </form>
  
-  <view class="like" bindtap="like" wx:if="{{habit.user_id !== user.id}}">
+  <!-- <view class="like" bindtap="like" wx:if="{{habit.user_id !== user.id}}">
     <image src="../../../../images/like.png" class="image" wx:if="{{!habit.is_liked}}" />
     <image src="../../../../images/liked.png" class="image" wx:if="{{habit.is_liked}}" />
-  </view>
+  </view> -->
   <!-- <view class="edit-btn" wx:if="{{habit.user_id === user.id}}"> -->
   <view class="edit-btn">
     <view bindtap='edit'>
