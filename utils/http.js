@@ -17,9 +17,20 @@ const http = (url = '', param = {}, other = {}) => {
     wx.request({
       ...request,
       complete: (res) => {
+        console.log(res);
         if (res.statusCode >= 200 && res.statusCode < 300) {
           resolve(res.data);
         } else {
+          switch (res.statusCode) {
+            case 401:
+              wx.showToast({
+                title: '请先登录',
+                icon: 'none',
+              });
+              break;
+            default:
+              break;
+          }
           reject(res.data);
         }
       }
