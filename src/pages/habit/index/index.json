@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "habit-list": "../../../components/habit/list/index"
+    "habit-list": "../../../components/habit/list/index",
+    "creator": "../../../components/creator/index"
   }
 }

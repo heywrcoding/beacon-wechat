@@ -1,0 +1,3 @@
+<view class="creator">
+  <image class="add" src="/images/add.png" />
+</view>

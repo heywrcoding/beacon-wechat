@@ -1,0 +1,14 @@
+.creator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: purple;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+
+.add {
+  width: 64rpx;
+  height: 64rpx;
+}

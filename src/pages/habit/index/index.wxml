@@ -1,3 +1,4 @@
 <view>
   <habit-list></habit-list>
+  <creator></creator>
 </view>
