@@ -1,4 +1,4 @@
 <view>
   <habit-list></habit-list>
-  <creator></creator>
+  <creator class="creator"></creator>
 </view>

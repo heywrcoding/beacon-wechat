@@ -1,1 +1,6 @@
 /* pages/habit/index/index.wxss */
+.creator {
+  position: absolute;
+  right: 24rpx;
+  bottom: 40rpx;
+}

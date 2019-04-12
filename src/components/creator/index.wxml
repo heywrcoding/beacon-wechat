@@ -1,3 +1,11 @@
 <view class="creator">
-  <image class="add" src="/images/add.png" />
+  <view class="item-ball">
+    <view class="item-content">新习惯</view>
+  </view>
+  <view class="item-ball">
+    <view class="item-content">新目标</view>
+  </view>
+  <view class="main-ball">
+    <image class="main-icon" src="/images/add.png" />
+  </view>
 </view>
