@@ -90,12 +90,17 @@ Page({
 
   edit() {
     // TODO: change into edit mode
+    this.setData({ isEditMode: true });
   },
 
   cancel() {
-    wx.navigateBack({
-      delta: 1,
-    });
+    if (this.data.isCreateMode) {
+      wx.navigateBack({
+        delta: 1,
+      });
+    } else {
+      this.setData({ isEditMode: false });
+    }
   },
 
   del() {

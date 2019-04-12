@@ -48,7 +48,7 @@
           value="{{habit.title}}"
           name="title"
           placeholder="习惯的标题"
-          disabled="{{isEditmode}}"
+          disabled="{{!isEditMode}}"
         />
       </view>
       <view>
@@ -57,7 +57,7 @@
           value="{{habit.content}}"
           name="content"
           placeholder="习惯的描述"
-          disabled="{{isEditmode}}"
+          disabled="{{!isEditMode}}"
         />
       </view>
       <view>
@@ -66,7 +66,7 @@
           value="{{habit.frequency}}"
           name="frequency"
           placeholder="每x天"
-          disabled="{{isEditmode}}"
+          disabled="{{!isEditMode}}"
         />
       </view>
       <view>
@@ -75,7 +75,7 @@
           value="{{habit.duration}}"
           name="duration"
           placeholder="天数"
-          disabled="{{isEditmode}}"
+          disabled="{{!isEditMode}}"
         />
       </view>
       <view wx:if="{{!isCreateMode}}">
@@ -99,7 +99,7 @@
         <text>修改习惯</text>
       </view>
       <view wx:if="{{isEditMode}}" class="bottom-btn" bindtap='cancel'>
-        <text>取消修改</text>
+        <text>取消编辑</text>
       </view>
       <view wx:else class="bottom-btn" bindtap='del'>
         <image class="btn-icon" src="../../../../images/delete.png" />
