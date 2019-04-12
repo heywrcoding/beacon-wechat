@@ -1,4 +1,4 @@
-<view class="imgContainer">
+<view class="habit-detail-container">
   <swiper
     class="swiper"
     indicator-dots="{{indicatorDots}}"
@@ -84,15 +84,15 @@
     <image src="../../../../images/liked.png" class="image" wx:if="{{habit.is_liked}}" />
   </view> -->
   <!-- <view class="edit-btn" wx:if="{{habit.user_id === user.id}}"> -->
-  <view class="edit-btn">
-    <view bindtap='edit'>
-      <image src="../../../../images/edit.png" />
-      <text>修改习惯</text>
-    </view>
-    <view bindtap='del'>
-      <image src="../../../../images/delete.png" />
-      <text>删除习惯</text>
-    </view>
+</view>
+<view class="bottom-btn-group">
+  <view class="bottom-btn" bindtap='edit'>
+    <image class="btn-icon" src="../../../../images/edit.png" />
+    <text>修改习惯</text>
+  </view>
+  <view class="bottom-btn" bindtap='del'>
+    <image class="btn-icon" src="../../../../images/delete.png" />
+    <text>删除习惯</text>
   </view>
 </view>
 
