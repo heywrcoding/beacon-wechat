@@ -85,6 +85,8 @@ Page({
         console.log(res);
         // TODO: wait for backend id to redirect
       });
+    } else {
+      // TODO: wait for backend modify habit
     }
   },
 
