@@ -12,7 +12,7 @@ Page({
     // nextMargin: 0,
     isCreateMode: false,
     isEditMode: false,
-    habit: null,
+    habit: {},
   },
 
   // methods
@@ -69,8 +69,33 @@ Page({
   //   });
   // },
 
+  submit(e) {
+    console.log(e);
+    this.setData({
+      habit: {
+        ...this.data.habit,
+        title: e.detail.value.title,
+        content: e.detail.value.content,
+        frequency: +e.detail.value.frequency,
+        duration: +e.detail.value.duration,
+      },
+    });
+    if (this.data.isCreateMode) {
+      http.post('habit', this.data.habit).then(res => {
+        console.log(res);
+        // TODO: wait for backend id to redirect
+      });
+    }
+  },
+
   edit() {
     // TODO: change into edit mode
+  },
+
+  cancel() {
+    wx.navigateBack({
+      delta: 1,
+    });
   },
 
   del() {

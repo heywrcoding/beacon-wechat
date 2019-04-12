@@ -1,3 +1,7 @@
+button::after {
+  border: none;
+}
+
 .habit-detail-container {
   position: fixed;
   overflow: scroll;

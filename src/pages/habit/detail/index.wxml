@@ -1,5 +1,5 @@
-<view class="habit-detail-container">
-  <swiper
+<view>
+  <!-- <swiper
     class="swiper"
     indicator-dots="{{indicatorDots}}"
     indicator-color="{{indicatorColor}}"
@@ -18,7 +18,7 @@
         />
       </swiper-item>
     </block>
-  </swiper>
+  </swiper> -->
 
   <!-- <view class="content">
     <view class="date">
@@ -40,42 +40,71 @@
       <text>{{habit.content}}</text>
     </view>
   </view> -->
-  <form>
-    <view>
-      <view>标题</view>
-      <input
-        value="{{habit.title}}"
-        placeholder="习惯的标题"
-        disabled="{{isEditmode}}"
-      />
+  <form bindsubmit="submit">
+    <view class="habit-detail-container">
+      <view>
+        <view>标题</view>
+        <input
+          value="{{habit.title}}"
+          name="title"
+          placeholder="习惯的标题"
+          disabled="{{isEditmode}}"
+        />
+      </view>
+      <view>
+        <view>描述</view>
+        <input
+          value="{{habit.content}}"
+          name="content"
+          placeholder="习惯的描述"
+          disabled="{{isEditmode}}"
+        />
+      </view>
+      <view>
+        <view>重复频率</view>
+        <input
+          value="{{habit.frequency}}"
+          name="frequency"
+          placeholder="每x天"
+          disabled="{{isEditmode}}"
+        />
+      </view>
+      <view>
+        <view>持续时间</view>
+        <input
+          value="{{habit.duration}}"
+          name="duration"
+          placeholder="天数"
+          disabled="{{isEditmode}}"
+        />
+      </view>
+      <view wx:if="{{!isCreateMode}}">
+        <view>创建时间</view>
+        <text>{{habit.create_time}}</text>
+      </view>
     </view>
-    <view>
-      <view>描述</view>
-      <input
-        value="{{habit.title}}"
-        placeholder="习惯的描述"
-        disabled="{{isEditmode}}"
-      />
-    </view>
-    <view>
-      <view>重复频率</view>
-      <input
-        value="{{habit.frequency}}"
-        placeholder="每x天"
-        disabled="{{isEditmode}}"
-      />
-    </view>
-    <view>
-      <view>持续时间</view>
-      <input
-        value="{{habit.duration}}"
-        placeholder="天数"
-        disabled="{{isEditmode}}"
-      />
-    </view>
-    <view wx:if="{{!isCreateMode}}">
-      <view>创建时间</view>
-      <text>{{habit.create_time}}</text>
+
+    <view class="bottom-btn-group">
+      <button
+        wx:if="{{isEditMode}}"
+        class="bottom-btn"
+        form-type="submit"
+        hover-class="none"
+      >
+        <image class="btn-icon" src="../../../../images/edit.png" />
+        <text>确认提交</text>
+      </button>
+      <view wx:else class="bottom-btn" bindtap='edit'>
+        <image class="btn-icon" src="../../../../images/edit.png" />
+        <text>修改习惯</text>
+      </view>
+      <view wx:if="{{isEditMode}}" class="bottom-btn" bindtap='cancel'>
+        <text>取消修改</text>
+      </view>
+      <view wx:else class="bottom-btn" bindtap='del'>
+        <image class="btn-icon" src="../../../../images/delete.png" />
+        <text>删除习惯</text>
+      </view>
     </view>
   </form>
  
@@ -84,16 +113,6 @@
     <image src="../../../../images/liked.png" class="image" wx:if="{{habit.is_liked}}" />
   </view> -->
   <!-- <view class="edit-btn" wx:if="{{habit.user_id === user.id}}"> -->
-</view>
-<view class="bottom-btn-group">
-  <view class="bottom-btn" bindtap='edit'>
-    <image class="btn-icon" src="../../../../images/edit.png" />
-    <text>修改习惯</text>
-  </view>
-  <view class="bottom-btn" bindtap='del'>
-    <image class="btn-icon" src="../../../../images/delete.png" />
-    <text>删除习惯</text>
-  </view>
 </view>
 
 <wxs module="viewDetails" src="./index.wxs"></wxs>
