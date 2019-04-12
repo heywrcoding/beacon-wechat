@@ -101,7 +101,7 @@
       <view wx:if="{{isEditMode}}" class="bottom-btn" bindtap='cancel'>
         <text>取消编辑</text>
       </view>
-      <view wx:else class="bottom-btn" bindtap='del'>
+      <view wx:else class="bottom-btn" bindtap='deleteHabit'>
         <image class="btn-icon" src="../../../../images/delete.png" />
         <text>删除习惯</text>
       </view>

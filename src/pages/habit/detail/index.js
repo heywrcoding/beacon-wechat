@@ -103,8 +103,14 @@ Page({
     }
   },
 
-  del() {
-    // TODO: wait for backend delete api
+  deleteHabit() {
+    if (this.data.habit.id) {
+      http.delete(`habit/${this.data.habit.id}`).then(res => {
+        wx.switchTab({
+          url: '/src/pages/habit/index/index',
+        });
+      });
+    }
   },
 
   onLoad(option) {
