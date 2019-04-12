@@ -79,34 +79,21 @@ Page({
 
   onLoad(option) {
     console.log('-----', option);
+    let title = '习惯详情';
     if (option.id !== '__new__') {
       this.setData({
         habit: { id: option.id },
       });
+      this.getData();
     } else {
+      console.log('new');
       this.setData({
         isCreateMode: true,
+        isEditMode: true,
       });
+      title = '编辑习惯'
     }
-    this.getData();
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-    wx.setNavigationBarTitle({
-      title: '习惯详情',
-    });
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-    wx.setNavigationBarTitle({
-      title: '修改习惯',
-    });
+    wx.setNavigationBarTitle({ title });
   },
 
   /**
