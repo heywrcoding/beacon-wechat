@@ -20,4 +20,10 @@ Component({
       console.log('new aim');
     },
   },
+  // show() will run when the page show every times.
+  pageLifetimes: {
+    show() {
+      this.setData({ isShow: false });
+    }
+  },
 });
