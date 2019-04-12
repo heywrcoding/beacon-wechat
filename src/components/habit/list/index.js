@@ -42,9 +42,10 @@ Component({
       }
     },
   },
-  lifetimes: {
-    attached() {
+  // show() will run when the page show every times.
+  pageLifetimes: {
+    show() {
       this.getData();
-    },
+    }
   },
 });
