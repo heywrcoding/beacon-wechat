@@ -24,6 +24,6 @@ Component({
   pageLifetimes: {
     show() {
       this.setData({ isShow: false });
-    }
+    },
   },
 });

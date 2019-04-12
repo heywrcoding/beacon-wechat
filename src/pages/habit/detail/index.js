@@ -81,7 +81,7 @@ Page({
       },
     });
     if (this.data.isCreateMode) {
-      http.post('habit', this.data.habit).then(res => {
+      http.post('habit', this.data.habit).then((res) => {
         console.log(res);
         // TODO: wait for backend id to redirect
       });
@@ -107,7 +107,7 @@ Page({
 
   deleteHabit() {
     if (this.data.habit.id) {
-      http.delete(`habit/${this.data.habit.id}`).then(res => {
+      http.delete(`habit/${this.data.habit.id}`).then(() => {
         wx.switchTab({
           url: '/src/pages/habit/index/index',
         });
@@ -129,7 +129,7 @@ Page({
         isCreateMode: true,
         isEditMode: true,
       });
-      title = '编辑习惯'
+      title = '编辑习惯';
     }
     wx.setNavigationBarTitle({ title });
   },

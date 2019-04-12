@@ -46,6 +46,6 @@ Component({
   pageLifetimes: {
     show() {
       this.getData();
-    }
+    },
   },
 });
