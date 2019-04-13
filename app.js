@@ -1,4 +1,4 @@
-const http = require('./utils/http.js');
+const auth = require('./utils/auth.js');
 
 //app.js
 App({
@@ -12,27 +12,7 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo;
-              // check if session expired
-              // wx.checkSession({
-              //   fail: () => {
-                  // login
-                  wx.login({
-                    success: res => {
-                      // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                      if (res.code) {
-                        http.post('auth', {
-                          code: res.code,
-                          nick_name: this.globalData.userInfo.nickName
-                        }).then(r => {
-                          wx.setStorageSync('Authorization', r.data.token);
-                        }).catch(e => {
-                          console.log(e);
-                        });
-                      }
-                    }
-                  });
-              //   }
-              // });
+              auth.login(res.userInfo);
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
