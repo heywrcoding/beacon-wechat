@@ -1,4 +1,5 @@
 const http = require('../../../../utils/http.js');
+const MDInput = require('../../../../utils/materialUI/mdinput/mdinput.js');
 
 Page({
   data: {
@@ -13,6 +14,49 @@ Page({
     isCreateMode: false,
     isEditMode: false,
     habit: {},
+    inputs: [
+      {
+        mdInput: {
+          mdi_num_range: '20',
+          mdi_float_label: '标题',
+          style_mdi_border_focus: 'border-bottom:1px solid blue;',
+          style_mdi_float_up: 'color:blue;',
+          hideFooter: 'true',
+          onMDInput: 'onColumn0MDInput',
+          onMDIBlur: 'onColumn0MDIBlur',
+        },
+      },
+      {
+        mdInput: {
+          mdi_num_input: 0,
+          mdi_num_range: '500',
+          mdi_float_label: '描述',
+          style_mdi_border_focus: 'border-bottom:1px solid blue;',
+          style_mdi_float_up: 'color:blue;',
+          onMDInput: 'onColumn1MDInput',
+          onMDIBlur: 'onColumn1MDIBlur',
+        },
+      },
+      {
+        mdInput: {
+          mdi_float_label: '重复频率',
+          mdi_helper_text_error: 'always show tips',
+          mdi_helper_text_tip: 'always show tips',
+          mdi_num_input: 0,
+          mdi_num_range: '12',
+          style_mdi_border_focus: 'border-bottom:1px solid plum;',
+          style_mdi_float_up: 'color:plum;',
+          style_mdi_number_inputting: 'color:plum;',
+          style_mdi_number_overflow: 'color:red;',
+          style_mdi_helper_shown: 'color:grey;',
+          style_mdi_helper_error: 'color:grey;',
+          style_mdi_number_range: 'color:plum;',
+          isHelperShowBefore: true,
+          onMDInput: 'onColumn2MDInput',
+          onMDIBlur: 'onColumn2MDIBlur',
+        },
+      },
+    ],
   },
 
   // methods
@@ -84,9 +128,13 @@ Page({
       http.post('habit', this.data.habit).then((res) => {
         console.log(res);
         // TODO: wait for backend id to redirect
+        wx.navigateBack({
+          delta: 1,
+        });
       });
     } else {
       // TODO: wait for backend modify habit
+      this.setData({ isCreateMode: false });
     }
   },
 
@@ -130,6 +178,7 @@ Page({
         isEditMode: true,
       });
       title = '编辑习惯';
+      MDInput.putData(this.data.inputs);
     }
     wx.setNavigationBarTitle({ title });
   },
