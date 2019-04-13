@@ -10,14 +10,21 @@
 }
 
 .md-input {
+  box-sizing: border-box;
+  height: 72rpx;
   padding: 8rpx 0;
   border-bottom: 4rpx solid #000;
+  transition: all .1s;
+}
+
+.md-input-focus {
+  border-bottom: 5rpx solid #66ccff;
 }
 
 .md-placeholder {
   position: relative;
   top: calc(1.4rem + 8rpx);
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .md-placeholder-float {

@@ -148,7 +148,7 @@ Page({
   handleInputFocus(e) {
     const mdInput = { ...this.data.mdInput };
     mdInput[e.target.dataset.name] = {
-      input: 'md-input',
+      input: 'md-input md-input-focus',
       placeholder: 'md-placeholder md-placeholder-float',
     };
     this.setData({ mdInput });
@@ -162,7 +162,10 @@ Page({
         placeholder: 'md-placeholder label-light',
       };
     } else {
-      mdInput[e.target.dataset.name].placeholder += ' label-light';
+      mdInput[e.target.dataset.name] = {
+        input: 'md-input',
+        placeholder: 'md-placeholder md-placeholder-float label-light',
+      };
     }
     this.setData({ mdInput });
   },
