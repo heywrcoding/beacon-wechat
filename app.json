@@ -1,5 +1,6 @@
 {
   "pages":[
+    "src/pages/authorize/index",
     "src/pages/home/index",
     "src/pages/habit/index/index",
     "src/pages/habit/detail/index",
