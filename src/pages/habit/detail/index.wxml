@@ -1,4 +1,3 @@
-<import src="../../../../utils/materialUI/mdinput/mdinput.wxml"/>
 <view>
   <!-- <swiper
     class="swiper"
@@ -42,14 +41,18 @@
     </view>
   </view> -->
   <form bindsubmit="submit">
-    <!-- <view class="habit-detail-container">
+    <view class="habit-detail-container">
       <view>
-        <view>标题</view>
+        <text class="{{mdInput.title.placeholder}}">标题</text>
         <input
+          class="{{mdInput.title.input}}"
+          placeholder-class="标题"
           value="{{habit.title}}"
           name="title"
-          placeholder="习惯的标题"
           disabled="{{!isEditMode}}"
+          bindfocus="handleInputFocus"
+          bindblur="handleInputBlur"
+          data-name="title"
         />
       </view>
       <view>
@@ -93,35 +96,6 @@
         hover-class="none"
       >
         <image class="btn-icon" src="../../../../images/edit.png" />
-        <text>确认提交</text>
-      </button>
-      <view wx:else class="bottom-btn" bindtap='edit'>
-        <image class="btn-icon" src="../../../../images/edit.png" />
-        <text>修改习惯</text>
-      </view>
-      <view wx:if="{{isEditMode}}" class="bottom-btn" bindtap='cancel'>
-        <text>取消编辑</text>
-      </view>
-      <view wx:else class="bottom-btn" bindtap='deleteHabit'>
-        <image class="btn-icon" src="../../../../images/delete.png" />
-        <text>删除习惯</text>
-      </view>
-    </view> -->
-
-    <view class="habit-detail-container">
-      <block wx:for="{{inputs}}" wx:key="inputs">
-        <template is="mdInput" data="{{...item.mdInput}}"/>
-      </block>
-    </view>
-
-    <view class="bottom-btn-group">
-      <button
-        wx:if="{{isEditMode}}"
-        class="bottom-btn"
-        form-type="submit"
-        hover-class="none"
-      >
-      <image class="btn-icon" src="../../../../images/edit.png" />
         <text>确认提交</text>
       </button>
       <view wx:else class="bottom-btn" bindtap='edit'>

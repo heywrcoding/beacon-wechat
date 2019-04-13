@@ -1,5 +1,4 @@
 const http = require('../../../../utils/http.js');
-const MDInput = require('../../../../utils/materialUI/mdinput/mdinput.js');
 
 Page({
   data: {
@@ -14,49 +13,12 @@ Page({
     isCreateMode: false,
     isEditMode: false,
     habit: {},
-    inputs: [
-      {
-        mdInput: {
-          mdi_num_range: '20',
-          mdi_float_label: '标题',
-          style_mdi_border_focus: 'border-bottom:1px solid blue;',
-          style_mdi_float_up: 'color:blue;',
-          hideFooter: 'true',
-          onMDInput: 'onColumn0MDInput',
-          onMDIBlur: 'onColumn0MDIBlur',
-        },
+    mdInput: {
+      title: {
+        input: 'md-input',
+        placeholder: 'md-placeholder label-light',
       },
-      {
-        mdInput: {
-          mdi_num_input: 0,
-          mdi_num_range: '500',
-          mdi_float_label: '描述',
-          style_mdi_border_focus: 'border-bottom:1px solid blue;',
-          style_mdi_float_up: 'color:blue;',
-          onMDInput: 'onColumn1MDInput',
-          onMDIBlur: 'onColumn1MDIBlur',
-        },
-      },
-      {
-        mdInput: {
-          mdi_float_label: '重复频率',
-          mdi_helper_text_error: 'always show tips',
-          mdi_helper_text_tip: 'always show tips',
-          mdi_num_input: 0,
-          mdi_num_range: '12',
-          style_mdi_border_focus: 'border-bottom:1px solid plum;',
-          style_mdi_float_up: 'color:plum;',
-          style_mdi_number_inputting: 'color:plum;',
-          style_mdi_number_overflow: 'color:red;',
-          style_mdi_helper_shown: 'color:grey;',
-          style_mdi_helper_error: 'color:grey;',
-          style_mdi_number_range: 'color:plum;',
-          isHelperShowBefore: true,
-          onMDInput: 'onColumn2MDInput',
-          onMDIBlur: 'onColumn2MDIBlur',
-        },
-      },
-    ],
+    },
   },
 
   // methods
@@ -70,7 +32,16 @@ Page({
           ...res.data,
         },
       });
-      console.log(this.data);
+      const mdInput = { ...this.mdInput };
+      if (res.data.title && res.data.title !== '') {
+        mdInput.title = {
+          input: 'md-input',
+          placeholder: 'md-placeholder-float label-light',
+        };
+      }
+      this.setData({ mdInput });
+      mdInput.title.placeholder += ' md-placeholder';
+      this.setData({ mdInput });
     });
   },
   imageOnLoad(ev) {
@@ -163,6 +134,28 @@ Page({
     }
   },
 
+  handleInputFocus(e) {
+    const mdInput = { ...this.mdInput };
+    mdInput[e.target.dataset.name] = {
+      input: 'md-input',
+      placeholder: 'md-placeholder md-placeholder-float',
+    };
+    this.setData({ mdInput });
+  },
+
+  handleInputBlur(e) {
+    const mdInput = { ...this.data.mdInput };
+    if (e.detail.value === '') {
+      mdInput[e.target.dataset.name] = {
+        input: 'md-input',
+        placeholder: 'md-placeholder label-light',
+      };
+    } else {
+      mdInput[e.target.dataset.name].placeholder += ' label-light';
+    }
+    this.setData({ mdInput });
+  },
+
   onLoad(option) {
     console.log('-----', option);
     let title = '习惯详情';
@@ -178,7 +171,6 @@ Page({
         isEditMode: true,
       });
       title = '编辑习惯';
-      MDInput.putData(this.data.inputs);
     }
     wx.setNavigationBarTitle({ title });
   },

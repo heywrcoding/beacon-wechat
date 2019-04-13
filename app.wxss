@@ -1,5 +1,4 @@
 /**app.wxss**/
-@import "utils/materialUI/mdinput/mdinput.wxss";
 .container {
   height: 100%;
   display: flex;
@@ -8,4 +7,24 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+
+.md-input {
+  padding: 8rpx 0;
+  border-bottom: 4rpx solid #000;
+}
+
+.md-placeholder {
+  position: relative;
+  top: calc(1.4rem + 8rpx);
+  transition: all .3s ease-in-out;
+}
+
+.md-placeholder-float {
+  font-size: 32rpx;
+  top: 0;
+}
+
+.label-light {
+  color: #888;
+}
