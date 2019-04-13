@@ -18,6 +18,7 @@
 }
 
 .md-input-focus {
+  caret-color: #66ccff;
   border-bottom: 5rpx solid #66ccff;
 }
 
