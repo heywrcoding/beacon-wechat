@@ -18,6 +18,10 @@ Page({
         input: 'md-input',
         placeholder: 'md-placeholder label-light',
       },
+      content: {
+        input: 'md-input',
+        placeholder: 'md-placeholder label-light',
+      },
     },
   },
 
@@ -39,8 +43,15 @@ Page({
           placeholder: 'md-placeholder-float label-light',
         };
       }
+      if (res.data.content && res.data.content !== '') {
+        mdInput.content = {
+          input: 'md-input',
+          placeholder: 'md-placeholder-float label-light',
+        };
+      }
       this.setData({ mdInput });
       mdInput.title.placeholder += ' md-placeholder';
+      mdInput.content.placeholder += ' md-placeholder';
       this.setData({ mdInput });
     });
   },
@@ -135,7 +146,7 @@ Page({
   },
 
   handleInputFocus(e) {
-    const mdInput = { ...this.mdInput };
+    const mdInput = { ...this.data.mdInput };
     mdInput[e.target.dataset.name] = {
       input: 'md-input',
       placeholder: 'md-placeholder md-placeholder-float',

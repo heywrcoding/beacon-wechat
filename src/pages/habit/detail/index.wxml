@@ -56,12 +56,16 @@
         />
       </view>
       <view>
-        <view>描述</view>
+        <text class="{{mdInput.content.placeholder}}">描述</text>
         <input
+          class="{{mdInput.content.input}}"
+          placeholder-class="描述"
           value="{{habit.content}}"
           name="content"
-          placeholder="习惯的描述"
           disabled="{{!isEditMode}}"
+          bindfocus="handleInputFocus"
+          bindblur="handleInputBlur"
+          data-name="content"
         />
       </view>
       <view>
