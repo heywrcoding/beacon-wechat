@@ -177,8 +177,8 @@ Page({
   },
 
   handlePickerChange(e) {
-    const picker = this.data.picker;
-    const habit = this.data.habit;
+    const { picker } = this.data;
+    const { habit } = this.data;
     picker[e.target.dataset.name].index = +e.detail.value;
     habit[e.target.dataset.name] = picker[e.target.dataset.name].range[+e.detail.value];
     this.setData({
