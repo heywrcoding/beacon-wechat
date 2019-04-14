@@ -68,16 +68,26 @@
           data-name="content"
         />
       </view>
-      <view>
-        <view>重复频率</view>
-        <input
-          value="{{habit.frequency}}"
-          name="frequency"
-          placeholder="每x天"
-          disabled="{{!isEditMode}}"
-        />
+      <view style="margin: 16px 0">
+        <view>频率</view>
+        <view style="margin-top: 8px">
+          <text class="label-light">每</text>
+          <picker
+            style="display: inline-block; width: 42px; text-align: center"
+            name="frequency"
+            mode="selector"
+            value="{{picker.frequency.index || 0}}"
+            range="{{picker.frequency.range}}"
+            disabled="{{!isEditMode}}"
+            bindchange="handlePickerChange"
+            data-name="frequency"
+          >
+            {{picker.frequency.range[picker.frequency.index || 0]}}
+          </picker>
+          <text class="label-light">天重复</text>
+        </view>
       </view>
-      <view>
+      <view style="margin: 16px 0">
         <view>持续时间</view>
         <input
           value="{{habit.duration}}"

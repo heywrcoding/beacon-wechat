@@ -23,6 +23,12 @@ Page({
         placeholder: 'md-placeholder label-light',
       },
     },
+    picker: {
+      frequency: {
+        range: [...Array(31).keys()],
+        index: 0,
+      },
+    },
   },
 
   // methods
@@ -168,6 +174,17 @@ Page({
       };
     }
     this.setData({ mdInput });
+  },
+
+  handlePickerChange(e) {
+    const picker = this.data.picker;
+    const habit = this.data.habit;
+    picker[e.target.dataset.name].index = +e.detail.value;
+    habit[e.target.dataset.name] = picker[e.target.dataset.name].range[+e.detail.value];
+    this.setData({
+      habit,
+      picker,
+    });
   },
 
   onLoad(option) {
