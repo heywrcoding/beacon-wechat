@@ -40,7 +40,14 @@ Component({
   // show() will run when the page show every times.
   pageLifetimes: {
     show() {
-      this.setData({ isShow: false });
+      this.setData({
+        isShow: false,
+        style: {
+          mainIcon: 'main-icon',
+          habit: 'item-ball hide',
+          content: 'item-ball hide',
+        },
+      });
     },
   },
 });
