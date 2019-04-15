@@ -13,6 +13,7 @@ Page({
     isCreateMode: false,
     isEditMode: false,
     habit: {
+      id: null,
       title: '',
       content: '',
       frequency: 0,
@@ -106,28 +107,29 @@ Page({
   //   });
   // },
 
-  submit(e) {
-    console.log(e);
-    this.setData({
-      habit: {
-        ...this.data.habit,
-        title: e.detail.value.title,
-        content: e.detail.value.content,
-        frequency: +e.detail.value.frequency,
-        duration: +e.detail.value.duration,
-      },
-    });
+  submit() {
+    const params = {
+      title: this.data.habit.title,
+      content: this.data.habit.content,
+      frequency: this.data.habit.frequency,
+      open: this.data.habit.open,
+    };
+    console.log(params);
     if (this.data.isCreateMode) {
-      http.post('habit', this.data.habit).then((res) => {
+      http.post('habit', params).then((res) => {
         console.log(res);
         // TODO: wait for backend id to redirect
-        wx.navigateBack({
-          delta: 1,
-        });
+        // wx.redirectTo({
+        //   url: `/src/pages/habit/detail/index?id=${res.data.id}`,
+        // });
       });
     } else {
       // TODO: wait for backend modify habit
-      this.setData({ isCreateMode: false });
+      // if (this.data.habit.id) {
+      //   http.put(`habit/${this.data.habit.id}`, params).then((res) => {
+      //     console.log(res);
+      //   });
+      // }
     }
   },
 
@@ -165,7 +167,19 @@ Page({
     this.setData({ mdInput });
   },
 
+  handleInput(e) {
+    // modify input value
+    const { habit } = this.data;
+    habit[e.target.dataset.name] = e.detail.value;
+    // update data
+    this.setData({ habit });
+  },
+
   handleInputBlur(e) {
+    // modify input value
+    const { habit } = this.data;
+    habit[e.target.dataset.name] = e.detail.value;
+    // md-input animation
     const mdInput = { ...this.data.mdInput };
     if (e.detail.value === '') {
       mdInput[e.target.dataset.name] = {
@@ -178,7 +192,11 @@ Page({
         placeholder: 'md-placeholder md-placeholder-float label-light',
       };
     }
-    this.setData({ mdInput });
+    // update data
+    this.setData({
+      mdInput,
+      habit,
+    });
   },
 
   handlePickerChange(e) {
@@ -201,10 +219,10 @@ Page({
   onLoad(option) {
     console.log('-----', option);
     let title = '习惯详情';
+    const { habit } = this.data;
     if (option.id !== '__new__') {
-      this.setData({
-        habit: { id: option.id },
-      });
+      habit.id = +option.id;
+      this.setData({ habit });
       this.getData();
     } else {
       console.log('new');

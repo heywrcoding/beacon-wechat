@@ -51,6 +51,7 @@
           name="title"
           disabled="{{!isEditMode}}"
           bindfocus="handleInputFocus"
+          bindinput="handleInput"
           bindblur="handleInputBlur"
           data-name="title"
         />
@@ -64,6 +65,7 @@
           name="content"
           disabled="{{!isEditMode}}"
           bindfocus="handleInputFocus"
+          bindinput="handleInput"
           bindblur="handleInputBlur"
           data-name="content"
         />
@@ -106,15 +108,10 @@
     </view>
 
     <view class="bottom-btn-group">
-      <button
-        wx:if="{{isEditMode}}"
-        class="bottom-btn"
-        form-type="submit"
-        hover-class="none"
-      >
+      <view wx:if="{{isEditMode}}" class="bottom-btn" bindtap="submit">
         <image class="btn-icon" src="../../../../images/edit.png" />
         <text>确认提交</text>
-      </button>
+      </view>
       <view wx:else class="bottom-btn" bindtap='edit'>
         <image class="btn-icon" src="../../../../images/edit.png" />
         <text>修改习惯</text>
