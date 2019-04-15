@@ -39,7 +39,7 @@ Page({
 
   // methods
   getData() {
-    console.log(this.data);
+    // get habit data
     http.get(`habit/${this.data.habit.id}`).then((res) => {
       console.log(res.data);
       this.setData({
@@ -48,6 +48,8 @@ Page({
           ...res.data,
         },
       });
+
+      // init md-input css style
       const mdInput = { ...this.mdInput };
       if (res.data.title && res.data.title !== '') {
         mdInput.title = {
@@ -61,24 +63,29 @@ Page({
           placeholder: 'md-placeholder-float label-light',
         };
       }
+      // TODO: init frequency data
       this.setData({ mdInput });
       mdInput.title.placeholder += ' md-placeholder';
       mdInput.content.placeholder += ' md-placeholder';
       this.setData({ mdInput });
     });
   },
+
   imageOnLoad(ev) {
     console.log(`图片加载成功，width: ${ev.detail.width}; height: ${ev.detail.height}`);
   },
+
   imageOnLoadError() {
     console.log('图片加载失败');
   },
+
   swiperChange(event) {
     const { current } = event.detail;
     this.setData({
       current,
     });
   },
+
   // like() {
   //   if (this.data.habit.is_liked) return;
   //   const { uid, timestamp, token } = getApp().data.key;
@@ -116,6 +123,7 @@ Page({
     };
     console.log(params);
     if (this.data.isCreateMode) {
+      // create a habit
       http.post('habit', params).then((res) => {
         console.log(res);
         // TODO: wait for backend id to redirect
@@ -124,6 +132,7 @@ Page({
         // });
       });
     } else {
+      // modify the habit
       // TODO: wait for backend modify habit
       // if (this.data.habit.id) {
       //   http.put(`habit/${this.data.habit.id}`, params).then((res) => {
@@ -134,7 +143,6 @@ Page({
   },
 
   edit() {
-    // TODO: change into edit mode
     this.setData({ isEditMode: true });
   },
 
@@ -225,6 +233,7 @@ Page({
       this.setData({ habit });
       this.getData();
     } else {
+      // create mode
       console.log('new');
       this.setData({
         isCreateMode: true,
