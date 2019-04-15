@@ -10,16 +10,32 @@
 }
 
 .md-input {
-  box-sizing: border-box;
+  position: relative;
   height: 72rpx;
   padding: 8rpx 0;
-  border-bottom: 1px solid #000;
   transition: all .2s;
 }
 
 .md-input-focus {
   caret-color: #66ccff;
-  border-bottom: 2px solid #66ccff;
+}
+
+.md-input::after {
+  position: absolute;
+  content: "";
+  background: #000;
+  width: 0;
+  height: 1px;
+  transition: all .2s ease-in-out;
+}
+
+.md-input-editable::after {
+  width: 100%;
+}
+
+.md-input-focus::after {
+  height: 2px;
+  background: #66ccff;
 }
 
 .md-placeholder {

@@ -49,7 +49,7 @@ Page({
       });
 
       // init md-input css style
-      const mdInput = { ...this.mdInput };
+      const { mdInput } = this.data;
       if (res.data.title && res.data.title !== '') {
         mdInput.title = {
           input: 'md-input',
@@ -152,6 +152,13 @@ Page({
 
   edit() {
     this.setData({ isEditMode: true });
+    const { mdInput } = this.data;
+    Object.keys(mdInput).forEach(key => {
+      if (mdInput[key].input) {
+        mdInput[key].input += ' md-input-editable';
+      }
+    });
+    this.setData({ mdInput });
   },
 
   cancel() {
@@ -161,6 +168,13 @@ Page({
       });
     } else {
       this.setData({ isEditMode: false });
+      const { mdInput } = this.data;
+      Object.keys(mdInput).forEach(key => {
+        if (mdInput[key].input) {
+          mdInput[key].input = 'md-input';
+        }
+      });
+      this.setData({ mdInput });
       this.getData();
     }
   },
@@ -178,7 +192,7 @@ Page({
   handleInputFocus(e) {
     const mdInput = { ...this.data.mdInput };
     mdInput[e.target.dataset.name] = {
-      input: 'md-input md-input-focus',
+      input: 'md-input md-input-editable md-input-focus',
       placeholder: 'md-placeholder md-placeholder-float',
     };
     this.setData({ mdInput });
@@ -200,12 +214,12 @@ Page({
     const mdInput = { ...this.data.mdInput };
     if (e.detail.value === '') {
       mdInput[e.target.dataset.name] = {
-        input: 'md-input',
+        input: 'md-input md-input-editable',
         placeholder: 'md-placeholder label-light',
       };
     } else {
       mdInput[e.target.dataset.name] = {
-        input: 'md-input',
+        input: 'md-input md-input-editable',
         placeholder: 'md-placeholder md-placeholder-float label-light',
       };
     }
@@ -236,7 +250,7 @@ Page({
   onLoad(option) {
     console.log('-----', option);
     let title = '习惯详情';
-    const { habit } = this.data;
+    const { habit, mdInput } = this.data;
     if (option.id !== '__new__') {
       habit.id = +option.id;
       this.setData({ habit });
@@ -244,9 +258,12 @@ Page({
     } else {
       // create mode
       console.log('new');
+      mdInput.title.input += ' md-input-editable';
+      mdInput.content.input += ' md-input-editable';
       this.setData({
         isCreateMode: true,
         isEditMode: true,
+        mdInput,
       });
       title = '编辑习惯';
     }
