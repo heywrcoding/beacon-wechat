@@ -107,9 +107,9 @@
           <text class="label-light" style="font-size: 16px">可以看到该习惯</text>
         </label>
       </view>
-      <view wx:if="{{!isCreateMode}}">
+      <view wx:if="{{!isCreateMode}}" style="margin: 16px 0">
         <view>创建时间</view>
-        <text>{{habit.create_time}}</text>
+        <view style="margin-top: 8px">{{habit.create_time}}</view>
       </view>
     </view>
 
