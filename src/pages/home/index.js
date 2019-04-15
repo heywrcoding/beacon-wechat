@@ -1,4 +1,5 @@
-const http = require('../../../utils/http.js');
+// TODO: wait for backend api
+// const http = require('../../../utils/http.js');
 
 Page({
   data: {
@@ -31,15 +32,14 @@ Page({
   },
 
   onShow() {
-    http.get('activity').then((res) => {
-      console.log(res.data);
-      this.setData({ activities: res.data.activities });
-    });
+    // TODO: wait for backend api
+    // http.get('activity').then((res) => {
+    //   console.log(res.data);
+    //   this.setData({ activities: res.data.activities });
+    // });
 
     // this.timeline = this.selectComponent('#timeline');
     // console.log(this.timeline);
     // this.timeline.getActivities(this.data);
-  },
-  onReady() {
   },
 });
