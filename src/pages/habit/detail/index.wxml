@@ -98,7 +98,13 @@
             data-name="open"
             bindchange="handleSwitchChange"
           />
-          <text class="label-light" style="font-size: 16px">好友可以看到该习惯</text>
+          <text class="label-light" style="font-size: 16px">好友</text>
+          <text
+            wx:if="{{!isEditMode && !habit.open}}"
+            class="label-light"
+            style="font-size: 16px"
+          >不</text>
+          <text class="label-light" style="font-size: 16px">可以看到该习惯</text>
         </label>
       </view>
       <view wx:if="{{!isCreateMode}}">
