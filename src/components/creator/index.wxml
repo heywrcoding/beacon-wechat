@@ -5,7 +5,7 @@
   <view wx:if="{{isShow}}" class="item-ball" bind:tap="createAim">
     <view class="item-content">新目标</view>
   </view>
-  <view class="main-ball" bind:tap="switchDisplay">
+  <view class="main-ball ripple" bind:tap="switchDisplay">
     <image class="main-icon" src="/images/add.png" />
   </view>
 </view>
