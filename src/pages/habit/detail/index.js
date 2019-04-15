@@ -41,7 +41,6 @@ Page({
   getData() {
     // get habit data
     http.get(`habit/${this.data.habit.id}`).then((res) => {
-      console.log(res.data);
       this.setData({
         habit: {
           ...this.data.habit,
@@ -63,8 +62,17 @@ Page({
           placeholder: 'md-placeholder-float label-light',
         };
       }
-      // TODO: init frequency data
-      this.setData({ mdInput });
+      // init frequency data
+      const { picker } = this.data;
+      let index = this.data.picker.frequency.range.indexOf(this.data.habit.frequency);
+      index = index === -1 ? 0 : index;
+      picker.frequency.index = index;
+      // update data
+      this.setData({
+        mdInput,
+        picker,
+      });
+      // avoid md-input animation delay
       mdInput.title.placeholder += ' md-placeholder';
       mdInput.content.placeholder += ' md-placeholder';
       this.setData({ mdInput });
