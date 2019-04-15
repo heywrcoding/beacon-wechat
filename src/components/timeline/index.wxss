@@ -1,7 +1,21 @@
 .timeline {
-  border-left: solid 10rpx #66ccff;
-  padding: 60rpx;
+  border-left: solid 8rpx #66ccff56;
+  padding: 57rpx;
+  margin-left: 70rpx;
+  margin-top: -20rpx;
 }
+
+/* .timeline::after {
+  content: '';
+  position: absolute;
+  left: 20%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: inherit;
+} */
 
 .event {
   position: relative;
@@ -11,8 +25,17 @@
   margin-bottom: 40rpx;
 }
 
+.avatar {
+  position: absolute;
+  top: 6rpx;
+  left: -92rpx;
+  width: 64rpx;
+  height: 64rpx;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
 .event::after {
-  content: "";
+  /* content: "";
   position: absolute;
   display: block;
   top: 16rpx;
@@ -21,7 +44,7 @@
   height: 32rpx;
   box-shadow: 0 0 0 10rpx #66ccff;
   border-radius: 50%;
-  background: white;
+  background: white; */
 }
 
 .event-strong {
