@@ -1,9 +1,11 @@
 <view class="creator">
   <view class="{{style.habit}}" bind:tap="createHabit">
     <view class="item-content">新习惯</view>
+    <image class="item-icon" src="/images/tabbar/habit-selected.png" />
   </view>
   <view class="{{style.content}}" bind:tap="createAim">
     <view class="item-content">新目标</view>
+    <image class="item-icon" src="/images/tabbar/aim-selected.png" />
   </view>
   <view class="main-ball ripple" bind:tap="switchDisplay">
     <image class="{{style.mainIcon}}" src="/images/add.png" />
