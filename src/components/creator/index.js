@@ -3,6 +3,8 @@ Component({
     isShow: false,
     style: {
       mainIcon: 'main-icon',
+      habit: 'item-ball hide',
+      content: 'item-ball hide',
     },
   },
   methods: {
@@ -13,9 +15,14 @@ Component({
       const { style } = this.data;
       if (this.data.isShow) {
         style.mainIcon = 'main-icon rotate-45';
+        style.habit = 'item-ball row-1 show';
+        style.content = 'item-ball row-2 show';
       } else {
         style.mainIcon = 'main-icon';
+        style.habit = 'item-ball row-2 hide';
+        style.content = 'item-ball row-1 hide';
       }
+      console.log(style);
       this.setData({ style });
     },
     createHabit() {
