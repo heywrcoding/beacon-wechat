@@ -13,13 +13,13 @@
   box-sizing: border-box;
   height: 72rpx;
   padding: 8rpx 0;
-  border-bottom: 4rpx solid #000;
-  transition: all .1s;
+  border-bottom: 1px solid #000;
+  transition: all .2s;
 }
 
 .md-input-focus {
   caret-color: #66ccff;
-  border-bottom: 5rpx solid #66ccff;
+  border-bottom: 2px solid #66ccff;
 }
 
 .md-placeholder {
