@@ -6,6 +6,6 @@
     <view class="item-content">新目标</view>
   </view>
   <view class="main-ball ripple" bind:tap="switchDisplay">
-    <image class="main-icon" src="/images/add.png" />
+    <image class="{{style.mainIcon}}" src="/images/add.png" />
   </view>
 </view>

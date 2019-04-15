@@ -36,6 +36,11 @@
 .main-icon {
   width: 48rpx;
   height: 48rpx;
+  transition: transform .1s ease-in-out;
+}
+
+.rotate-45 {
+  transform: rotate(-45deg);
 }
 
 .item-ball {

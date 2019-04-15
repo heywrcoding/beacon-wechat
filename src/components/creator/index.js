@@ -1,12 +1,22 @@
 Component({
   data: {
     isShow: false,
+    style: {
+      mainIcon: 'main-icon',
+    },
   },
   methods: {
     switchDisplay() {
       this.setData({
         isShow: !this.data.isShow,
       });
+      const { style } = this.data;
+      if (this.data.isShow) {
+        style.mainIcon = 'main-icon rotate-45';
+      } else {
+        style.mainIcon = 'main-icon';
+      }
+      this.setData({ style });
     },
     createHabit() {
       // TODO: nagivate to create habit page
