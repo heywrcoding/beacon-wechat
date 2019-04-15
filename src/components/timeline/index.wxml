@@ -8,6 +8,7 @@
     bindtap="goDetails"
   >
     <view>
+      <image class="avatar" src="{{item.avatar}}"></image>
       <text class="event-strong">{{item.user}} </text>
       <text>{{item.operation}} </text>
       <text class="event-strong">{{item.target}} </text>
