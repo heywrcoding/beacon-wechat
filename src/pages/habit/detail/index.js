@@ -12,7 +12,12 @@ Page({
     // nextMargin: 0,
     isCreateMode: false,
     isEditMode: false,
-    habit: {},
+    habit: {
+      title: '',
+      content: '',
+      frequency: 0,
+      open: true,
+    },
     mdInput: {
       title: {
         input: 'md-input',
@@ -185,6 +190,12 @@ Page({
       habit,
       picker,
     });
+  },
+
+  handleSwitchChange(e) {
+    const { habit } = this.data;
+    habit[e.target.dataset.name] = e.detail.value;
+    this.setData({ habit });
   },
 
   onLoad(option) {

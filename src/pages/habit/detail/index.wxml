@@ -88,13 +88,16 @@
         </view>
       </view>
       <view style="margin: 16px 0">
-        <view>持续时间</view>
-        <input
-          value="{{habit.duration}}"
-          name="duration"
-          placeholder="天数"
-          disabled="{{!isEditMode}}"
-        />
+        <label>
+          <switch
+            wx:if="{{isEditMode}}"
+            type="checkbox"
+            checked="{{habit.open}}"
+            data-name="open"
+            bindchange="handleSwitchChange"
+          />
+          <text class="label-light" style="font-size: 16px">好友可以看到该习惯</text>
+        </label>
       </view>
       <view wx:if="{{!isCreateMode}}">
         <view>创建时间</view>
