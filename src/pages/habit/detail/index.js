@@ -153,7 +153,7 @@ Page({
   edit() {
     this.setData({ isEditMode: true });
     const { mdInput } = this.data;
-    Object.keys(mdInput).forEach(key => {
+    Object.keys(mdInput).forEach((key) => {
       if (mdInput[key].input) {
         mdInput[key].input += ' md-input-editable';
       }
@@ -169,7 +169,7 @@ Page({
     } else {
       this.setData({ isEditMode: false });
       const { mdInput } = this.data;
-      Object.keys(mdInput).forEach(key => {
+      Object.keys(mdInput).forEach((key) => {
         if (mdInput[key].input) {
           mdInput[key].input = 'md-input';
         }
