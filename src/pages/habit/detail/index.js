@@ -161,6 +161,7 @@ Page({
       });
     } else {
       this.setData({ isEditMode: false });
+      this.getData();
     }
   },
 
