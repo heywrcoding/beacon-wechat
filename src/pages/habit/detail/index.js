@@ -31,7 +31,7 @@ Page({
     },
     picker: {
       frequency: {
-        range: [...Array(31).keys()],
+        range: [...Array(31).keys()].slice(1),
         index: 0,
       },
     },
