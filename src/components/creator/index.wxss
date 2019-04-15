@@ -1,7 +1,7 @@
 @import '../../../app.wxss';
 
 .creator {
-  width: 120rpx;
+  width: 60px;
   text-align: center;
   z-index: 99;
 }
@@ -12,10 +12,10 @@
   justify-content: center;
   align-items: center;
   background: #66ccff;
-  width: 120rpx;
-  height: 120rpx;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  box-shadow: 0rpx 8rpx 15rpx 6rpx #ccc;
+  box-shadow: 0px 3px 12px 2px #ccc;
 }
 
 .main-ball::before {
@@ -26,7 +26,7 @@
   border-radius: 50%;
   background: #fff;
   opacity: 0;
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .main-ball:active::before {
@@ -34,8 +34,8 @@
 }
 
 .main-icon {
-  width: 48rpx;
-  height: 48rpx;
+  width: 24px;
+  height: 24px;
   transition: transform .1s ease-in-out;
 }
 
@@ -49,11 +49,11 @@
   justify-content: center;
   align-items: center;
   background: #fff;
-  width: 72rpx;
-  height: 72rpx;
-  margin: 15rpx auto;
+  width: 36px;
+  height: 36px;
+  margin: 8px auto;
   border-radius: 50%;
-  box-shadow: 0rpx 4rpx 15rpx 4rpx #ccc;
+  box-shadow: 0px 2px 12px 2px #ccc;
 }
 
 .item-ball::before {
@@ -72,17 +72,17 @@
 }
 
 .item-icon {
-  width: 42rpx;
-  height: 42rpx;
+  width: 20px;
+  height: 20px;
 }
 
 .item-content {
   position: absolute;
-  right: 96rpx;
+  right: 46px;
   white-space: nowrap;
-  padding: 10rpx 20rpx;
-  border-radius: 10rpx;
-  font-size: 32rpx;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 14px;
   color: #fff;
   background: rgba(0, 0, 0, 1);
 }
