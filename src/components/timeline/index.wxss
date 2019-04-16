@@ -1,8 +1,9 @@
 .timeline {
   border-left: solid 8rpx #66ccff56;
   padding: 57rpx;
-  margin-left: 70rpx;
+  margin-left: 170rpx;
   margin-top: -20rpx;
+  margin-right: -100rpx;
 }
 
 /* .timeline::after {
@@ -21,17 +22,17 @@
   position: relative;
   word-wrap: break-word;
   border-bottom: dashed 1rpx rgba(0, 0, 0, .2);
-  padding-bottom: 40rpx;
-  margin-bottom: 40rpx;
+  padding-bottom: 45rpx;
+  margin-bottom: 45rpx;
 }
 
 .avatar {
   position: absolute;
   top: 6rpx;
-  left: -92rpx;
-  width: 64rpx;
-  height: 64rpx;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  left: -96rpx;
+  width: 75rpx;
+  height: 75rpx;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
 .event::after {
@@ -50,4 +51,13 @@
 .event-strong {
   font-size: 40rpx;
   font-weight: 800;
+}
+
+.date {
+  position: absolute;
+  top: 30rpx;
+  left: -230rpx;
+  font-family: courier;
+  font-size: 25rpx;
+  font-weight: 200;
 }

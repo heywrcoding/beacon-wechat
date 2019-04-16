@@ -8,6 +8,7 @@
     bindtap="goDetails"
   >
     <view>
+      <text class='date'>{{item.date}}</text>
       <image class="avatar" src="{{item.avatar}}"></image>
       <text class="event-strong">{{item.user}} </text>
       <text>{{item.operation}} </text>

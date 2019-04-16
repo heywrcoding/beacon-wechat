@@ -11,7 +11,7 @@ Page({
         target: '吃早饭',
         targetType: '习惯',
         content: 'fafafafaaaaaaaaaaaaaaaaaasdsadassadadaadeeefuck',
-        date: '2019年4月15日9时35分',
+        date: '2019/4/15',
         avatar: '/images/avatar_girl.png',
       },
       {
@@ -21,7 +21,7 @@ Page({
         target: '做首页',
         targetType: '目标',
         content: 'vzxvzvfafa',
-        date: '2019年4月15日9时40分',
+        date: '2019/4/15',
         avatar: '/images/avatar_boy.png',
       },
       {
@@ -31,7 +31,8 @@ Page({
         target: '做首页',
         targetType: '目标',
         content: 'davokpjoia',
-        date: '2019年4月15日9时45分',
+        date: '2019/4/15',
+        avatar: '/images/location.png',
       },
       {
         id: 3,
@@ -40,7 +41,8 @@ Page({
         target: '做首页',
         targetType: '目标',
         content: 'davokpjoia',
-        date: '2019年4月15日9时45分',
+        date: '2019/4/15',
+        avatar: '/images/heart.png',
       },
       {
         id: 4,
@@ -49,7 +51,8 @@ Page({
         target: '做首页',
         targetType: '目标',
         content: 'davokpjoia',
-        date: '2019年4月15日9时45分',
+        date: '2019/4/15',
+        avatar: '/images/testForViewDetails.jpg',
       },
       {
         id: 5,
@@ -58,7 +61,8 @@ Page({
         target: '做首页',
         targetType: '目标',
         content: 'davokpjoia',
-        date: '2019年4月15日9时45分',
+        date: '2019/4/15',
+        avatar: '/images/avatar_boy.png',
       },
     ],
   },
