@@ -1,6 +1,17 @@
+// const http = require('../../../../utils/http.js');
+
 Page({
   data: {
-    aim: [
+    aim: [],
+  },
+
+  getData() {
+    // TODO: wait for backend api
+    // http.get('aim').then((res) => {
+    //   console.log(res.data);
+    //   this.setData({ aim: res.data });
+    // });
+    const aim = [
       {
         "id": 1,
         "title": "成为海贼王",
@@ -47,6 +58,18 @@ Page({
           },
         ],
       },
-    ],
+      {
+        "id": 8,
+        "title": "测试一下标题过长的目标处理",
+        "done": false,
+        "open": true,
+        "children": [],
+      },
+    ];
+    this.setData({ aim });
+  },
+
+  onShow() {
+    this.getData();
   },
 });
