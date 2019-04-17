@@ -1,0 +1,25 @@
+<view class="aim-card">
+  <view class="parent ripple">
+    <switch
+      class="checkbox"
+      type="checkbox"
+      checked="{{aim.done}}"
+      bindchange="handleSwitchChange"
+    />
+    <view class="title">{{aim.title}}</view>
+    <view wx:if="{{aim.children && aim.children.length > 0}}" class="drop-down">
+      <image src="/images/dropDown.png" class="drop-down-icon" />
+    </view>
+  </view>
+  <view
+    class="child ripple"
+    wx:if="{{aim.children && aim.children.length > 0}}"
+    wx:for="{{aim.children}}"
+    wx:for-index="idx"
+    wx:for-item="item"
+    wx:key="idx"
+  >
+    <switch class="checkbox" type="checkbox" checked="{{item.done}}" bindchange="handleSwitchChange" />
+    <view class="title">{{item.title}}</view>
+  </view>
+</view>

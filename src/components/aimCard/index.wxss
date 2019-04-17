@@ -1,0 +1,51 @@
+@import '../../../app.wxss';
+
+.aim-card {
+  overflow: hidden;
+  padding: 3px;
+}
+
+.parent {
+  border-radius: 4px;
+  box-shadow: 0 0 1px 1px #ccc;
+  display: flex;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.child {
+  display: flex;
+  float: right;
+  width: 88%;
+  border-radius: 4px;
+  box-shadow: 0 0 3px 1px #ccc;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.checkbox {
+  display: inline-block;
+  flex-basis: 12%;
+}
+
+.title {
+  display: inline-block;
+  flex-grow: 1;
+  flex-basis: 76%;
+}
+
+.drop-down {
+  flex-basis: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop-down-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+}
