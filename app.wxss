@@ -80,3 +80,9 @@
   opacity: .3;
   transition: 0s;
 }
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

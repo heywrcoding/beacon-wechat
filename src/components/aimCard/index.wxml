@@ -6,14 +6,20 @@
       checked="{{aim.done}}"
       bindchange="handleSwitchChange"
     />
-    <view class="title">{{aim.title}}</view>
-    <view wx:if="{{aim.children && aim.children.length > 0}}" class="drop-down">
-      <image src="/images/dropDown.png" class="drop-down-icon" />
+    <view class="main-part">
+      <text class="title ellipsis">{{aim.title}}</text>
+    </view>
+    <view
+      wx:if="{{aim.children && aim.children.length > 0}}"
+      class="drop-down"
+      bind:tap="handleExpand"
+    >
+      <image src="/images/dropDown.png" class="{{style.dropDown}}" />
     </view>
   </view>
   <view
-    class="child ripple"
-    wx:if="{{aim.children && aim.children.length > 0}}"
+    class="{{style.child}}"
+    wx:if="{{isExpand}}"
     wx:for="{{aim.children}}"
     wx:for-index="idx"
     wx:for-item="item"

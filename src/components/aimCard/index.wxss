@@ -6,46 +6,64 @@
 }
 
 .parent {
-  border-radius: 4px;
+  border-radius: 3px;
   box-shadow: 0 0 1px 1px #ccc;
   display: flex;
-  padding: 12px;
+  align-items: center;
+  height: 50px;
   margin-bottom: 12px;
 }
 
 .child {
   display: flex;
+  align-items: center;
+  height: 50px;
   float: right;
-  width: 88%;
-  border-radius: 4px;
+  width: 94%;
+  border-radius: 3px;
   box-shadow: 0 0 3px 1px #ccc;
-  padding: 12px;
   margin-bottom: 8px;
+  transition: opacity 150ms ease-in-out;
 }
 
 .checkbox {
-  display: inline-block;
-  flex-basis: 12%;
-}
-
-.title {
-  display: inline-block;
-  flex-grow: 1;
-  flex-basis: 76%;
-}
-
-.drop-down {
-  flex-basis: 12%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-basis: 17%;
+  height: 100%;
+}
+
+.main-part {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-basis: 66%;
+  height: 100%;
+}
+
+.title {
+  width: 460rpx;
+}
+
+.drop-down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 17%;
+  height: 100%;
 }
 
 .drop-down-icon {
   width: 20px;
   height: 20px;
+  transition: transform 150ms ease-in-out;
 }
 
 .rotate180 {
   transform: rotate(180deg);
+}
+
+.show {
+  opacity: 1;
 }
