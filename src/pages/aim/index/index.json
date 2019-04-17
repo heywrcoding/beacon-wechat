@@ -1,1 +1,6 @@
-{}
+{
+  "usingComponents": {
+    "aim-card": "../../../components/aimCard/index",
+    "creator": "../../../components/creator/index"
+  }
+}

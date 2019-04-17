@@ -1,3 +1,13 @@
 <view>
-  <habit-list></habit-list>
+  <view class="aim-container">
+    <aim-card
+      class="aim-item"
+      wx:for="{{aim}}"
+      wx:for-index="idx"
+      wx:for-item="item"
+      wx:key="idx"
+      aim="{{item}}"
+    />
+  </view>
+  <creator class="creator"></creator>
 </view>

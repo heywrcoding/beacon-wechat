@@ -1,1 +1,15 @@
 /* pages/habit/index/index.wxss */
+.aim-container {
+  padding: 10px;
+}
+
+.aim-item {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.creator {
+  position: absolute;
+  right: 24rpx;
+  bottom: 40rpx;
+}
