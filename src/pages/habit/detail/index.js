@@ -134,11 +134,9 @@ Page({
     if (this.data.isCreateMode) {
       // create a habit
       http.post('habit', params).then((res) => {
-        console.log(res);
-        // TODO: wait for backend id to redirect
-        // wx.redirectTo({
-        //   url: `/src/pages/habit/detail/index?id=${res.data.id}`,
-        // });
+        wx.redirectTo({
+          url: `/src/pages/habit/detail/index?id=${res.data.id}`,
+        });
       });
     } else {
       // modify the habit
