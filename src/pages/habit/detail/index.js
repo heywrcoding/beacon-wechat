@@ -140,12 +140,12 @@ Page({
       });
     } else {
       // modify the habit
-      // TODO: wait for backend modify habit
-      // if (this.data.habit.id) {
-      //   http.put(`habit/${this.data.habit.id}`, params).then((res) => {
-      //     console.log(res);
-      //   });
-      // }
+      if (this.data.habit.id) {
+        http.put(`habit/${this.data.habit.id}`, params).then((res) => {
+          console.log(res);
+          this.setData({ isEditMode: false });
+        });
+      }
     }
   },
 
