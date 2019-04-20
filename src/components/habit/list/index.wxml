@@ -2,7 +2,6 @@
   <view
     class="list-container"
     bindtap="habitListTap"
-    data-id="{{item.id}}"
     data-idx="{{idx}}"
     wx:for="{{list}}"
     wx:key="id"

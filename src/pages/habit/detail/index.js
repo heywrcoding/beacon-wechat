@@ -46,17 +46,17 @@ Page({
       habit.isOpen = res.data.is_open || true;
       habit.content = res.data.content || '';
       habit.frequency = res.data.frequency || 1;
-      habit.createTime = res.data.creat_time || '';
+      habit.createTime = res.data.create_time || '';
 
       // init md-input css style
       const { mdInput } = this.data;
-      if (res.data.title && res.data.title !== '') {
+      if (habit.title && habit.title !== '') {
         mdInput.title = {
           input: 'md-input',
           placeholder: 'md-placeholder-float label-light',
         };
       }
-      if (res.data.content && res.data.content !== '') {
+      if (habit.content && habit.content !== '') {
         mdInput.content = {
           input: 'md-input',
           placeholder: 'md-placeholder-float label-light',
@@ -252,11 +252,11 @@ Page({
     const { habit, mdInput } = this.data;
     if (option.id !== '__new__') {
       habit.id = +option.id;
+      habit.title = option.title;
       this.setData({ habit });
       this.getData();
     } else {
       // create mode
-      console.log('new');
       mdInput.title.input += ' md-input-editable';
       mdInput.content.input += ' md-input-editable';
       this.setData({

@@ -26,7 +26,8 @@ Component({
       // });
     },
     habitListTap(e) {
-      const { id, idx } = e.currentTarget.dataset;
+      const { idx } = e.currentTarget.dataset;
+      const habit = this.data.list[idx];
       switch (e.target.dataset.type) {
         case 'increase':
           this.increase(idx);
@@ -34,7 +35,7 @@ Component({
         case 'item':
           // go to detail
           wx.navigateTo({
-            url: `/src/pages/habit/detail/index?id=${id}`,
+            url: `/src/pages/habit/detail/index?id=${habit.id}&&title=${habit.title}`,
           });
           break;
         default:

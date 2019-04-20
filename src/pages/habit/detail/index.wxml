@@ -109,7 +109,7 @@
       </view>
       <view wx:if="{{!isCreateMode}}" style="margin: 16px 0">
         <view>创建时间</view>
-        <view style="margin-top: 8px">{{habit.create_time}}</view>
+        <view style="margin-top: 8px">{{habit.createTime}}</view>
       </view>
     </view>
 
