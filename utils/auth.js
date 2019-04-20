@@ -13,11 +13,14 @@ const login = (userinfo = {}) => {
           success: res => {
             // 发送 res.code 到后台换取 openId, sessionKey, unionId
             if (res.code) {
-              http.post('auth', {
+              http.post('auth/login', {
                 code: res.code,
                 nick_name: userinfo.nickName,
+                gender: userinfo.gender,
+                avatar_url: userinfo.avatarUrl,
               }).then(r => {
                 wx.setStorageSync('Authorization', r.data.token);
+                wx.setStorageSync('user_id', r.data.uid);
                 resolve();
               }).catch(e => {
                 reject(e);
