@@ -16,8 +16,9 @@ Page({
       id: null,
       title: '',
       content: '',
-      frequency: 0,
-      open: true,
+      frequency: 1,
+      isOpen: true,
+      creatTime: '',
     },
     mdInput: {
       title: {
@@ -41,12 +42,11 @@ Page({
   getData() {
     // get habit data
     http.get(`habit/${this.data.habit.id}`).then((res) => {
-      this.setData({
-        habit: {
-          ...this.data.habit,
-          ...res.data,
-        },
-      });
+      const { habit } = this.data;
+      habit.isOpen = res.data.is_open || true;
+      habit.content = res.data.content || '';
+      habit.frequency = res.data.frequency || 1;
+      habit.createTime = res.data.creat_time || '';
 
       // init md-input css style
       const { mdInput } = this.data;
@@ -69,6 +69,7 @@ Page({
       picker.frequency.index = index;
       // update data
       this.setData({
+        habit,
         mdInput,
         picker,
       });
@@ -127,7 +128,7 @@ Page({
       title: this.data.habit.title,
       content: this.data.habit.content,
       frequency: this.data.habit.frequency,
-      open: this.data.habit.open,
+      is_open: this.data.habit.isOpen,
     };
     console.log(params);
     if (this.data.isCreateMode) {
