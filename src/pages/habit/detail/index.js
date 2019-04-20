@@ -138,14 +138,12 @@ Page({
           url: `/src/pages/habit/detail/index?id=${res.data.id}`,
         });
       });
-    } else {
-      // modify the habit
-      if (this.data.habit.id) {
-        http.put(`habit/${this.data.habit.id}`, params).then((res) => {
-          console.log(res);
-          this.setData({ isEditMode: false });
-        });
-      }
+    } else if (this.data.habit.id) {
+      // modify a habit
+      http.put(`habit/${this.data.habit.id}`, params).then((res) => {
+        console.log(res);
+        this.setData({ isEditMode: false });
+      });
     }
   },
 
