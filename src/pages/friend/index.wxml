@@ -1,1 +1,30 @@
-<view></view>
+<view>
+  <view class="list-group">
+    <view class="list list-panel">
+      <view class="list-front"></view>
+      <view class="list-title">
+        <image class="avatar" src="" />
+        <view class="title">加好友一起努力～</view>
+      </view>
+      <view class="list-extra">
+        <button class="btn" type="primary">添加好友</button>
+      </view>
+    </view>
+  </view>
+  <view class="list-group">
+    <view
+      class="list list-panel"
+      wx:for="{{friends}}"
+      wx:for-index="idx"
+      wx:for-item="item"
+      wx:key="idx"
+    >
+      <view class="list-front h-center">{{idx + 1}}</view>
+      <view class="list-title">
+        <image class="avatar" src="{{item.avatarUrl}}" />
+        <view class="title">{{item.nickName}}</view>
+      </view>
+      <view class="list-extra h-center level">Lv.1</view>
+    </view>
+  </view>
+</view>
