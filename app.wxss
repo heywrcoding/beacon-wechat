@@ -86,3 +86,18 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.h-center {
+  display: flex;
+  justify-content: center;
+}
+
+.h-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.h-right {
+  display: flex;
+  justify-content: flex-end;
+}

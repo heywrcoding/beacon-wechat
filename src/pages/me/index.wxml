@@ -13,28 +13,28 @@
   </view>
   <view class="additional">
     <view class="list-group" bind:tap="handleTap">
-      <view class="list" data-name="friend">
-        <view class="list-front" data-name="friend">
+      <view class="list list-link" data-name="friend">
+        <view class="list-front h-center" data-name="friend">
           <image class="icon" src="/images/friend.png" />
         </view>
         <view class="list-title" data-name="friend">好友</view>
-        <view class="list-extra" data-name="friend">
+        <view class="list-extra h-right" data-name="friend">
           <image class="icon" src="/images/arrowRight.png" data-name="friend" />
         </view>
       </view>
     </view>
     <view class="list-group">
-      <view class="list">
-        <view class="list-front"></view>
+      <view class="list list-link">
+        <view class="list-front h-center"></view>
         <view class="list-title">测试1</view>
-        <view class="list-extra">
+        <view class="list-extra h-right">
           <image class="icon" src="/images/arrowRight.png" />
         </view>
       </view>
-      <view class="list">
-        <view class="list-front"></view>
+      <view class="list list-link">
+        <view class="list-front h-center"></view>
         <view class="list-title">测试1</view>
-        <view class="list-extra">
+        <view class="list-extra h-right">
           <image class="icon" src="/images/arrowRight.png" />
         </view>
       </view>
