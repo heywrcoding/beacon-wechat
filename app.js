@@ -13,6 +13,7 @@ App({
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo;
               auth.login(res.userInfo).then(() => {
+                this.globalData.uid = wx.getStorageSync('uid') || null;
                 wx.switchTab({
                   url: '/src/pages/home/index',
                 });
@@ -30,6 +31,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    uid: null,
+    userInfo: null,
   }
 })

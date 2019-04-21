@@ -2,6 +2,7 @@
 // 获取应用实例
 const app = getApp();
 const auth = require('../../../utils/auth.js');
+const http = require('../../../utils/http.js');
 
 Page({
   data: {
@@ -10,13 +11,16 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
-  onLoad() {
+  onLoad(options) {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true,
       });
       auth.login(app.globalData.userInfo).then(() => {
+        if (options.uid) {
+          this.addFriend(options.uid);
+        }
         wx.switchTab({
           url: '/src/pages/home/index',
         });
@@ -30,6 +34,9 @@ Page({
           hasUserInfo: true,
         });
         auth.login(res.userInfo).then(() => {
+          if (options.uid) {
+            this.addFriend(options.uid);
+          }
           wx.switchTab({
             url: '/src/pages/home/index',
           });
@@ -45,6 +52,9 @@ Page({
             hasUserInfo: true,
           });
           auth.login(res.userInfo).then(() => {
+            if (options.uid) {
+              this.addFriend(options.uid);
+            }
             wx.switchTab({
               url: '/src/pages/home/index',
             });
@@ -62,10 +72,23 @@ Page({
         hasUserInfo: true,
       });
       auth.login(app.globalData.userInfo).then(() => {
+        if (options.uid) {
+          this.addFriend(options.uid);
+        }
         wx.switchTab({
           url: '/src/pages/home/index',
         });
       });
+    }
+  },
+  addFriend(uid) {
+    console.log('add friend', uid);
+    if (uid) {
+      // TODO: wait for backend
+      // const params = { uid };
+      // http.post('user/friend', params).then((res) => {
+      //   console.log(res.data);
+      // });
     }
   },
 });

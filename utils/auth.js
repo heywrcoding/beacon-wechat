@@ -20,7 +20,7 @@ const login = (userinfo = {}) => {
                 avatar_url: userinfo.avatarUrl,
               }).then(r => {
                 wx.setStorageSync('Authorization', r.data.token);
-                wx.setStorageSync('user_id', r.data.uid);
+                wx.setStorageSync('uid', r.data.uid);
                 resolve();
               }).catch(e => {
                 reject(e);
