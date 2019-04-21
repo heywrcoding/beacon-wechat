@@ -5,7 +5,7 @@
     "src/pages/habit/index/index",
     "src/pages/habit/detail/index",
     "src/pages/aim/index/index",
-    "src/pages/profile/index/index"
+    "src/pages/me/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -37,7 +37,7 @@
         "selectedIconPath": "images/tabbar/aim-selected.png"
       },
       {
-        "pagePath": "src/pages/profile/index/index",
+        "pagePath": "src/pages/me/index",
         "text": "我的",
         "iconPath": "images/tabbar/profile.png",
         "selectedIconPath": "images/tabbar/profile-selected.png"

@@ -1,0 +1,17 @@
+<view>
+  <view class="profile">
+    <view class="icon">
+      <image class="avatar" src="{{userInfo.avatarUrl}}" />
+    </view>
+    <view class="content">
+      <view>{{userInfo.nickName}}</view>
+      <view>{{userInfo.gender === 0 ? '男' : '女'}}</view>
+    </view>
+    <view class="extra">
+      <image class="arrow-right" src="/images/arrowRight.png" />
+    </view>
+  </view>
+  <view class="additional">
+    <view class="friend list">好友</view>
+  </view>
+</view>

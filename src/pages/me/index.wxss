@@ -1,0 +1,42 @@
+page {
+  background: #f8f8f8;
+}
+
+.profile {
+  display: flex;
+  background: #fff;
+  padding: 12px 8px;
+  box-shadow: 0 1px 1px 0 #ccc;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  flex-basis: 25%;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 66.7%;
+  justify-content: space-around;
+  height: 64px;
+}
+
+.extra {
+  display: flex;
+  align-items: center;
+  flex-basis: 8.3%;
+  height: 96px;
+}
+
+.arrow-right {
+  width: 28px;
+  height: 28px;
+}
