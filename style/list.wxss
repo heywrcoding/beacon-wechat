@@ -29,7 +29,7 @@
   display: none;
 }
 
-.list .list-icon {
+.list .list-front {
   display: flex;
   align-items: center;
   flex-basis: 16.7%;
