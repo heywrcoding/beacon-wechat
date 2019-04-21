@@ -2,25 +2,27 @@
 // 获取应用实例
 const app = getApp();
 const auth = require('../../../utils/auth.js');
-const http = require('../../../utils/http.js');
+// const http = require('../../../utils/http.js');
 
 Page({
   data: {
     motto: 'Welcome to beacon~~~',
     userInfo: {},
+    uid: null,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   onLoad(options) {
+    if (options.uid) {
+      this.setData({ uid: options.uid });
+    }
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true,
       });
       auth.login(app.globalData.userInfo).then(() => {
-        if (options.uid) {
-          this.addFriend(options.uid);
-        }
+        this.addFriend();
         wx.switchTab({
           url: '/src/pages/home/index',
         });
@@ -34,9 +36,7 @@ Page({
           hasUserInfo: true,
         });
         auth.login(res.userInfo).then(() => {
-          if (options.uid) {
-            this.addFriend(options.uid);
-          }
+          this.addFriend();
           wx.switchTab({
             url: '/src/pages/home/index',
           });
@@ -52,9 +52,7 @@ Page({
             hasUserInfo: true,
           });
           auth.login(res.userInfo).then(() => {
-            if (options.uid) {
-              this.addFriend(options.uid);
-            }
+            this.addFriend();
             wx.switchTab({
               url: '/src/pages/home/index',
             });
@@ -72,18 +70,16 @@ Page({
         hasUserInfo: true,
       });
       auth.login(app.globalData.userInfo).then(() => {
-        if (options.uid) {
-          this.addFriend(options.uid);
-        }
+        this.addFriend();
         wx.switchTab({
           url: '/src/pages/home/index',
         });
       });
     }
   },
-  addFriend(uid) {
-    console.log('add friend', uid);
-    if (uid) {
+  addFriend() {
+    console.log('add friend', this.data.uid);
+    if (this.data.uid) {
       // TODO: wait for backend
       // const params = { uid };
       // http.post('user/friend', params).then((res) => {
