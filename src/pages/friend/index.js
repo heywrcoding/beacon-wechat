@@ -1,4 +1,5 @@
 const app = getApp();
+// const http = require('../../../utils/http.js');
 
 Page({
   data: {
@@ -17,6 +18,24 @@ Page({
       },
     ],
   },
+  getData() {
+    // TODO: wait for backend
+    // http.get('user/friend').then((res) => {
+    //   console.log(res.data);
+    //   const friends = res.data.map((obj) => {
+    //     return {
+    //       uid: obj.uid || null,
+    //       nickName: obj.nick_name || '',
+    //       gender: obj.gender || 2,
+    //       avatarUrl: obj.avatar_url || '',
+    //     };
+    //   });
+    //   this.setData({ friends });
+    // });
+  },
+  onLoad() {
+    this.getData();
+  },
   onShareAppMessage() {
     let uid = null;
     if (app.globalData) {
@@ -27,5 +46,5 @@ Page({
       path: `/src/pages/authorize/index?uid=${uid}`,
       imageUrl: '',
     };
-  }
+  },
 });
