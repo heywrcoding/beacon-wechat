@@ -1,0 +1,48 @@
+.list-group {
+  margin: 16px 0;
+  background: #fff;
+  box-shadow: 0 0 1px 0 #ccc;
+}
+
+.list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px 8px;
+}
+
+.list:active {
+  background: #eee;
+}
+
+.list::after {
+  position: absolute;
+  left: 16.7%;
+  right: 12px;
+  bottom: 0;
+  content: "";
+  background: #f0f0f0;
+  height: 1px;
+}
+
+.list-group .list:last-child::after {
+  display: none;
+}
+
+.list .list-icon {
+  display: flex;
+  align-items: center;
+  flex-basis: 16.7%;
+}
+
+.list .list-title {
+  display: flex;
+  align-items: center;
+  flex-basis: 75%;
+}
+
+.list .list-extra {
+  display: flex;
+  align-items: center;
+  flex-basis: 8.3%;
+}

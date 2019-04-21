@@ -12,6 +12,30 @@
     </view>
   </view>
   <view class="additional">
-    <view class="friend list">好友</view>
+    <view class="list-group">
+      <view class="list">
+        <view class="list-icon"></view>
+        <view class="list-title">好友</view>
+        <view class="list-extra">
+          <image class="arrow-right" src="/images/arrowRight.png" />
+        </view>
+      </view>
+    </view>
+    <view class="list-group">
+      <view class="list">
+        <view class="list-icon"></view>
+        <view class="list-title">测试1</view>
+        <view class="list-extra">
+          <image class="arrow-right" src="/images/arrowRight.png" />
+        </view>
+      </view>
+      <view class="list">
+        <view class="list-icon"></view>
+        <view class="list-title">测试1</view>
+        <view class="list-extra">
+          <image class="arrow-right" src="/images/arrowRight.png" />
+        </view>
+      </view>
+    </view>
   </view>
 </view>
