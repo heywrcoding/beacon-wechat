@@ -8,16 +8,18 @@
       <view>{{userInfo.gender === 0 ? '男' : '女'}}</view>
     </view>
     <view class="extra">
-      <image class="arrow-right" src="/images/arrowRight.png" />
+      <image class="icon" src="/images/arrowRight.png" />
     </view>
   </view>
   <view class="additional">
     <view class="list-group" bind:tap="handleTap">
       <view class="list" data-name="friend">
-        <view class="list-front" data-name="friend"></view>
+        <view class="list-front" data-name="friend">
+          <image class="icon" src="/images/friend.png" />
+        </view>
         <view class="list-title" data-name="friend">好友</view>
         <view class="list-extra" data-name="friend">
-          <image class="arrow-right" src="/images/arrowRight.png" data-name="friend" />
+          <image class="icon" src="/images/arrowRight.png" data-name="friend" />
         </view>
       </view>
     </view>
@@ -26,14 +28,14 @@
         <view class="list-front"></view>
         <view class="list-title">测试1</view>
         <view class="list-extra">
-          <image class="arrow-right" src="/images/arrowRight.png" />
+          <image class="icon" src="/images/arrowRight.png" />
         </view>
       </view>
       <view class="list">
         <view class="list-front"></view>
         <view class="list-title">测试1</view>
         <view class="list-extra">
-          <image class="arrow-right" src="/images/arrowRight.png" />
+          <image class="icon" src="/images/arrowRight.png" />
         </view>
       </view>
     </view>
