@@ -5,7 +5,9 @@
     </view>
     <view class="content">
       <view>{{userInfo.nickName}}</view>
-      <view>{{userInfo.gender === 0 ? '男' : '女'}}</view>
+      <view wx:if="{{userInfo.gender === 1}}">男</view>
+      <view wx:elif="{{userInfo.gender === 2}}">女</view>
+      <view wx:else>未知</view>
     </view>
     <view class="extra">
       <image class="icon" src="/images/arrowRight.png" />

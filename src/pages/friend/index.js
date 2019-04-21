@@ -13,7 +13,7 @@ Page({
       {
         uid: 2,
         nickName: 'Lagranmoon',
-        gender: 0,
+        gender: 2,
         avatarUrl: '',
       },
     ],
@@ -26,7 +26,7 @@ Page({
     //     return {
     //       uid: obj.uid || null,
     //       nickName: obj.nick_name || '',
-    //       gender: obj.gender || 2,
+    //       gender: obj.gender || 0,
     //       avatarUrl: obj.avatar_url || '',
     //     };
     //   });
