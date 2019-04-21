@@ -5,7 +5,8 @@
     "src/pages/habit/index/index",
     "src/pages/habit/detail/index",
     "src/pages/aim/index/index",
-    "src/pages/me/index"
+    "src/pages/me/index",
+    "src/pages/friend/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

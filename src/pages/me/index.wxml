@@ -12,12 +12,12 @@
     </view>
   </view>
   <view class="additional">
-    <view class="list-group">
-      <view class="list">
-        <view class="list-icon"></view>
-        <view class="list-title">好友</view>
-        <view class="list-extra">
-          <image class="arrow-right" src="/images/arrowRight.png" />
+    <view class="list-group" bind:tap="handleTap">
+      <view class="list" data-name="friend">
+        <view class="list-icon" data-name="friend"></view>
+        <view class="list-title" data-name="friend">好友</view>
+        <view class="list-extra" data-name="friend">
+          <image class="arrow-right" src="/images/arrowRight.png" data-name="friend" />
         </view>
       </view>
     </view>
