@@ -1,4 +1,1 @@
 /* pages/habit/index/index.wxss */
-.activity {
-  padding: 0 32rpx;
-}

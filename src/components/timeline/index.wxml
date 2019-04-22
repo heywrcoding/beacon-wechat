@@ -5,16 +5,17 @@
     wx:key="id"
     wx:for-index="idx"
     wx:for-item="item"
-    bindtap="goDetails"
   >
-    <view>
-      <text class='date'>{{item.date}}</text>
+    <view class="event-main">
       <image class="avatar" src="{{item.avatar}}"></image>
-      <text class="event-strong">{{item.user}} </text>
+      <text class="strong">{{item.user}} </text>
       <text>{{item.operation}} </text>
-      <text class="event-strong">{{item.target}} </text>
+      <text class="strong">{{item.target}} </text>
       <text>{{item.targetType}}</text>
     </view>
     <view class="event-content">{{item.content}}</view>
+    <view class="event-date">
+      <text>{{item.date}}</text>
+    </view>
   </view>
 </view>
