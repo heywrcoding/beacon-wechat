@@ -1,0 +1,20 @@
+var viewDetails = {
+  imagesToArr: function (str) {
+    console.log(str);
+    return str ? str.split(',') : [];
+  },
+  viewImgs: function(str){
+    console.log(typeof(str));
+    return str;
+  },
+  validateFrequency: function(frequency) {
+    var regDigit = getRegExp('[0-9]+', 'g');
+    return regDigit.test(frequency);
+  }
+};
+
+module.exports = {
+  imagesToArr: viewDetails.imagesToArr,
+  viewImgs: viewDetails.viewImgs,
+  validateFrequency: viewDetails.validateFrequency,
+};

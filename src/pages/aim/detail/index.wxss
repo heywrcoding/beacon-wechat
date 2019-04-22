@@ -1,0 +1,244 @@
+button::after {
+  border: none;
+}
+
+.habit-detail-container {
+  position: fixed;
+  overflow: scroll;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 150rpx;
+  padding: 60rpx 60rpx;
+}
+
+.bottom-btn-group {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  height: 120rpx;
+  background: #fafafa;
+  z-index: 99;
+}
+
+.bottom-btn-group::after {
+  position: absolute;
+  content: "";
+  width: 4rpx;
+  height: 70rpx;
+  background: #ccc;
+  top: 25rpx;
+  left: 50%;
+  transform: translateX(-2rpx);
+}
+
+.bottom-btn {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  color: #666;
+}
+
+.btn-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}
+
+/* .swiper {
+  height: 576rpx;
+}
+
+.swiper .image {
+  width: 755rpx;
+  height: 100%;
+}
+
+.content {
+  position: relative;
+  min-height: 50%;
+  margin: 43rpx;
+}
+
+.content .date, .content .location {
+  font-size: 22rpx;
+  color: #AAAAAA;
+}
+
+.content .title {
+  padding: 80rpx 0;
+  font-size: 43rpx;
+  font-weight: bold;
+  color: #444444;
+}
+
+.content .text {
+  line-height: 150%;
+  font-size: 29rpx;
+  font-weight: 300;
+  text-align: justify;
+  word-break: break-all;
+  color: #333333;
+}
+
+.content .location {
+  display: flex;
+  display: -webkit-flex;
+  margin: 43rpx 0;
+}
+
+.content .location .image {
+  width: 21.6rpx;
+  height: 27rpx;
+  margin-right: 20rpx;
+}
+
+.imgContainer .mood, .imgContainer .discuss {
+  position: relative;
+  display: flex;
+  display: -webkit-flex;
+  height: 128rpx;
+  margin: 48rpx 48rpx 0;
+  line-height: 128rpx;
+  align-items: center;
+  font-size: 29rpx;
+}
+
+.imgContainer .discuss {
+  margin-top: 0;
+}
+
+.mood .normal, .discuss .image {
+  display: flex;
+  display: -webkit-flex;
+  width: 82rpx;
+  height: 132rpx;
+  align-items: center;
+}
+
+.mood .normal image, .discuss .image image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.mood .description, .discuss .description {
+  display: flex;
+  display: -webkit-flex;
+  width: 574rpx;
+  border-bottom: 1px solid #F1F1F1;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+}
+
+.description text {
+  margin-right: 16rpx;
+  color: #444444
+}
+
+.description .mode {
+  color: #AAAAAA
+}
+
+.description .edit {
+  color: #2DC3A6;
+}
+
+.mood .change {
+  position: absolute;
+  display: flex;
+  display: -webkit-flex;
+  top: 0;
+  left: 0;
+  right: 120rpx;
+  bottom: 0;
+  align-items: center;
+  z-index: 999;
+}
+
+.change image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 30rpx;
+}
+
+.container .comment {
+  margin: 64rpx 48rpx 0;
+}
+
+.comment .title {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.comment .item {
+  display: flex;
+  display: -webkit-flex;
+  padding: 33rpx 0;
+  font-size: 28rpx;
+  color: #444444;
+}
+
+.item .avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+}
+
+.item .sub {
+  margin-left: 24rpx;
+}
+
+.sub .des {
+  font-size: 24rpx;
+}
+
+.sub .des .from {
+  margin-right: 8rpx
+}
+
+.sub .des .to {
+  margin-left: 4rpx;
+  color: #2DC3A6;
+}
+
+.sub .des .date {
+  margin-left: 8rpx;
+  color: #AAAAAA;
+}
+
+.sub .content {
+  min-height: auto;
+  margin: 0;
+  margin-top: 16rpx;
+  line-height: 40rpx;
+}
+
+.like {
+  position: absolute;
+  right: 43rpx;
+  bottom: 43rpx;
+}
+
+.like .image {
+  width: 116rpx;
+  height: 116rpx;
+}
+
+.more {
+  position: absolute;
+  top: 43rpx;
+  right: 43rpx;
+  width: 45rpx;
+  height: 8rpx;
+}
+
+.more .image {
+  display: block;
+  width: 45rpx;
+  height: 8rpx;
+} */

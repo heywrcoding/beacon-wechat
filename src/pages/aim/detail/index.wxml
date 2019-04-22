@@ -1,0 +1,142 @@
+<view>
+  <!-- <swiper
+    class="swiper"
+    indicator-dots="{{indicatorDots}}"
+    indicator-color="{{indicatorColor}}"
+    indicator-active-color="{{indicatorActiveColor}}"
+    bindchange="swiperChange"
+    wx:if="{{habit.images}}"
+  >
+    <block wx:for="{{viewDetails.imagesToArr(habit.images)}}" wx:key="index">
+      <swiper-item>
+        <image
+          src="{{item}}"
+          class="image"
+          mode="aspectFit"
+          bindload="imageOnLoad"
+          binderror="imageOnLoadError"
+        />
+      </swiper-item>
+    </block>
+  </swiper> -->
+
+  <!-- <view class="content">
+    <view class="date">
+      <text>该习惯由{{habit.initiator}}发起，属于{{habit.taxology}}习惯</text>
+    </view>
+    <view class="date">
+      <text>用户{{habit.user}}于{{habit.create_time}}开始此习惯。</text>
+    </view>
+    <view class="date" wx:if="{{habit.today}}">
+      <text>习惯已持续了{{habit.duration}}天。今日已完成。</text>
+    </view>
+    <view class="date" wx:else="{{habit.today}}">
+      <text>习惯已持续了{{habit.duration}}天。今日尚未完成。</text>
+    </view>
+    <view class="title">
+      <text>{{habit.title}}</text>
+    </view>
+    <view class="text">
+      <text>{{habit.content}}</text>
+    </view>
+  </view> -->
+  <form bindsubmit="submit">
+    <view class="habit-detail-container">
+      <view>
+        <text class="{{mdInput.title.placeholder}}">标题</text>
+        <input
+          class="{{mdInput.title.input}}"
+          placeholder-class="标题"
+          value="{{habit.title}}"
+          name="title"
+          disabled="{{!isEditMode}}"
+          bindfocus="handleInputFocus"
+          bindinput="handleInput"
+          bindblur="handleInputBlur"
+          data-name="title"
+        />
+      </view>
+      <view>
+        <text class="{{mdInput.content.placeholder}}">描述</text>
+        <input
+          class="{{mdInput.content.input}}"
+          placeholder-class="描述"
+          value="{{habit.content}}"
+          name="content"
+          disabled="{{!isEditMode}}"
+          bindfocus="handleInputFocus"
+          bindinput="handleInput"
+          bindblur="handleInputBlur"
+          data-name="content"
+        />
+      </view>
+      <view style="margin: 16px 0">
+        <view>频率</view>
+        <view style="margin-top: 8px">
+          <text class="label-light">每</text>
+          <picker
+            style="display: inline-block; width: 42px; text-align: center"
+            name="frequency"
+            mode="selector"
+            value="{{picker.frequency.index || 0}}"
+            range="{{picker.frequency.range}}"
+            disabled="{{!isEditMode}}"
+            bindchange="handlePickerChange"
+            data-name="frequency"
+          >
+            {{picker.frequency.range[picker.frequency.index || 0]}}
+          </picker>
+          <text class="label-light">天重复</text>
+        </view>
+      </view>
+      <view style="margin: 16px 0">
+        <label>
+          <switch
+            wx:if="{{isEditMode}}"
+            type="checkbox"
+            checked="{{habit.isOpen}}"
+            data-name="isOpen"
+            bindchange="handleSwitchChange"
+          />
+          <text class="label-light" style="font-size: 16px">好友</text>
+          <text
+            wx:if="{{!isEditMode && !habit.isOpen}}"
+            class="label-light"
+            style="font-size: 16px"
+          >不</text>
+          <text class="label-light" style="font-size: 16px">可以看到该习惯</text>
+        </label>
+      </view>
+      <view wx:if="{{!isCreateMode}}" style="margin: 16px 0">
+        <view>创建时间</view>
+        <view style="margin-top: 8px">{{habit.createTime}}</view>
+      </view>
+    </view>
+
+    <view class="bottom-btn-group">
+      <view wx:if="{{isEditMode}}" class="bottom-btn" bindtap="submit">
+        <image class="btn-icon" src="../../../../images/edit.png" />
+        <text>确认提交</text>
+      </view>
+      <view wx:else class="bottom-btn" bindtap='edit'>
+        <image class="btn-icon" src="../../../../images/edit.png" />
+        <text>修改习惯</text>
+      </view>
+      <view wx:if="{{isEditMode}}" class="bottom-btn" bindtap='cancel'>
+        <text>取消编辑</text>
+      </view>
+      <view wx:else class="bottom-btn" bindtap='deleteHabit'>
+        <image class="btn-icon" src="../../../../images/delete.png" />
+        <text>删除习惯</text>
+      </view>
+    </view>
+  </form>
+ 
+  <!-- <view class="like" bindtap="like" wx:if="{{habit.user_id !== user.id}}">
+    <image src="../../../../images/like.png" class="image" wx:if="{{!habit.is_liked}}" />
+    <image src="../../../../images/liked.png" class="image" wx:if="{{habit.is_liked}}" />
+  </view> -->
+  <!-- <view class="edit-btn" wx:if="{{habit.user_id === user.id}}"> -->
+</view>
+
+<wxs module="viewDetails" src="./index.wxs"></wxs>
