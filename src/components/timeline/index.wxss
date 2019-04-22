@@ -47,13 +47,32 @@
   margin-bottom: 8px;
 }
 
-.avatar {
+.avatar-container {
   position: absolute;
   top: 50%;
   left: -30px;
+  background: #fff;
+  width: 54px;
+  height: 54px;
   transform: translate(-50%, -50%);
-  width: 36px;
-  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  transform: rotate(45deg);
+  box-shadow: 0 0 1px 1px #ccc;
+  overflow: hidden;
+}
+
+.avatar > .img {
+  width: 28px;
+  height: 28px;
+  transform: rotate(-45deg) scale(1.42);
 }
 
 .event-date {

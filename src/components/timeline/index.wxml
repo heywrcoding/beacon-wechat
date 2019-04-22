@@ -7,7 +7,11 @@
     wx:for-item="item"
   >
     <view class="event-main">
-      <image class="avatar" src="{{item.avatar}}"></image>
+      <view class="avatar-container">
+        <view class="avatar">
+          <image class="img" src="{{item.avatar}}"></image>
+        </view>
+      </view>
       <text class="strong">{{item.user}} </text>
       <text>{{item.operation}} </text>
       <text class="strong">{{item.target}} </text>
