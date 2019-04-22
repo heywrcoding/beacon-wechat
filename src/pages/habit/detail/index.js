@@ -42,8 +42,9 @@ Page({
   getData() {
     // get habit data
     http.get(`habit/${this.data.habit.id}`).then((res) => {
+      console.log(res.data);
       const { habit } = this.data;
-      habit.isOpen = res.data.is_open || true;
+      habit.isOpen = res.data.is_open;
       habit.content = res.data.content || '';
       habit.frequency = res.data.frequency || 1;
       habit.createTime = res.data.create_time || '';
