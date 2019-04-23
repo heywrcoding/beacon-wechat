@@ -1,0 +1,42 @@
+<view>
+  <view class="profile">
+    <view class="front">
+      <image class="avatar" src="{{userInfo.avatarUrl}}" />
+    </view>
+    <view class="content">
+      <view>{{userInfo.nickName}}</view>
+      <view wx:if="{{userInfo.gender === 1}}">男</view>
+      <view wx:elif="{{userInfo.gender === 2}}">女</view>
+      <view wx:else>未知</view>
+    </view>
+  </view>
+  <view class="grid-group">
+    <view class="grid grid-link" data-name="feedback">
+      <view class="grid-front h-center" data-name="feedback">
+        <image class="icon" src="/images/profile/feedback.png" />
+      </view>
+      <view class="grid-title" data-name="feedback">反馈</view>
+      <view class="grid-extra h-right" data-name="feedback">
+        <image class="icon" src="/images/profile/arrowRight.png" data-name="feedback" />
+      </view>
+    </view>
+    <view class="grid grid-link" data-name="privacy">
+      <view class="grid-front h-center" data-name="privacy">
+        <image class="icon" src="/images/profile/privacy.png" />
+      </view>
+      <view class="grid-title" data-name="privacy">隐私策略</view>
+      <view class="grid-extra h-right" data-name="privacy">
+        <image class="icon" src="/images/profile/arrowRight.png" data-name="privacy" />
+      </view>
+    </view>
+    <view class="grid grid-link" data-name="about">
+      <view class="grid-front h-center" data-name="about">
+        <image class="icon" src="/images/profile/about.png" />
+      </view>
+      <view class="grid-title" data-name="about">关于我们</view>
+      <view class="grid-extra h-right" data-name="about">
+        <image class="icon" src="/images/profile/arrowRight.png" data-name="about" />
+      </view>
+    </view>
+  </view>
+</view>

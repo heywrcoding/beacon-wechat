@@ -8,6 +8,7 @@
     "src/pages/aim/detail/index",
     "src/pages/profile/index/index",
     "src/pages/profile/setting/index",
+    "src/pages/profile/achievement/index",
     "src/pages/friend/index"
   ],
   "window":{
