@@ -115,7 +115,7 @@
 
     <view class="bottom-btn-group">
       <view wx:if="{{isEditMode}}" class="bottom-btn" bindtap="submit">
-        <image class="btn-icon" src="../../../../images/edit.png" />
+        <image class="btn-icon" src="../../../../images/ok.png" />
         <text>确认提交</text>
       </view>
       <view wx:else class="bottom-btn" bindtap='edit'>
@@ -123,6 +123,7 @@
         <text>修改习惯</text>
       </view>
       <view wx:if="{{isEditMode}}" class="bottom-btn" bindtap='cancel'>
+        <image class="btn-icon" src="../../../../images/cancel.png" />
         <text>取消编辑</text>
       </view>
       <view wx:else class="bottom-btn" bindtap='deleteHabit'>

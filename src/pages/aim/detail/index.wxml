@@ -22,16 +22,16 @@
 
   <!-- <view class="content">
     <view class="date">
-      <text>该习惯由{{aim.initiator}}发起，属于{{aim.taxology}}习惯</text>
+      <text>该目标由{{aim.initiator}}发起，属于{{aim.taxology}}目标</text>
     </view>
     <view class="date">
-      <text>用户{{aim.user}}于{{aim.create_time}}开始此习惯。</text>
+      <text>用户{{aim.user}}于{{aim.create_time}}开始此目标。</text>
     </view>
     <view class="date" wx:if="{{aim.today}}">
-      <text>习惯已持续了{{aim.duration}}天。今日已完成。</text>
+      <text>目标已持续了{{aim.duration}}天。今日已完成。</text>
     </view>
     <view class="date" wx:else="{{aim.today}}">
-      <text>习惯已持续了{{aim.duration}}天。今日尚未完成。</text>
+      <text>目标已持续了{{aim.duration}}天。今日尚未完成。</text>
     </view>
     <view class="title">
       <text>{{aim.title}}</text>
@@ -104,7 +104,7 @@
             class="label-light"
             style="font-size: 16px"
           >不</text>
-          <text class="label-light" style="font-size: 16px">可以看到该习惯</text>
+          <text class="label-light" style="font-size: 16px">可以看到该目标</text>
         </label>
       </view>
       <view wx:if="{{!isCreateMode}}" style="margin: 16px 0">
@@ -115,19 +115,20 @@
 
     <view class="bottom-btn-group">
       <view wx:if="{{isEditMode}}" class="bottom-btn" bindtap="submit">
-        <image class="btn-icon" src="../../../../images/edit.png" />
+        <image class="btn-icon" src="../../../../images/ok.png" />
         <text>确认提交</text>
       </view>
       <view wx:else class="bottom-btn" bindtap='edit'>
         <image class="btn-icon" src="../../../../images/edit.png" />
-        <text>修改习惯</text>
+        <text>修改目标</text>
       </view>
       <view wx:if="{{isEditMode}}" class="bottom-btn" bindtap='cancel'>
+        <image class="btn-icon" src="../../../../images/cancel.png" />
         <text>取消编辑</text>
       </view>
       <view wx:else class="bottom-btn" bindtap='deleteAim'>
         <image class="btn-icon" src="../../../../images/delete.png" />
-        <text>删除习惯</text>
+        <text>删除目标</text>
       </view>
     </view>
   </form>

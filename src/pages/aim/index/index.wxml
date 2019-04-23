@@ -5,8 +5,11 @@
       wx:for="{{aim}}"
       wx:for-index="idx"
       wx:for-item="item"
-      wx:key="idx"
+      wx:key="id"
       aim="{{item}}"
+      data-idx="{{idx}}"
+      bind:tap="aimDetailsTap"
+      data-type="item"
     />
   </view>
   <creator class="creator"></creator>

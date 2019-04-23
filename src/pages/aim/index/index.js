@@ -69,6 +69,19 @@ Page({
     this.setData({ aim });
   },
 
+  aimDetailsTap(e) {
+    console.log(e);
+    const { idx } = e.currentTarget.dataset;
+    console.log(e.currentTarget.dataset);
+    const aim = this.data.aim[idx];
+    console.log(e.target.dataset.type);
+    if (e.target.dataset.type == "item") {
+      wx.navigateTo({
+        url: '/src/pages/aim/detail/index?id=${aim.id}&&title=${aim.title}',
+      })
+    }
+  },
+
   onShow() {
     this.getData();
   },
