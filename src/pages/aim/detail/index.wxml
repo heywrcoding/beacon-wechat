@@ -5,9 +5,9 @@
     indicator-color="{{indicatorColor}}"
     indicator-active-color="{{indicatorActiveColor}}"
     bindchange="swiperChange"
-    wx:if="{{habit.images}}"
+    wx:if="{{aim.images}}"
   >
-    <block wx:for="{{viewDetails.imagesToArr(habit.images)}}" wx:key="index">
+    <block wx:for="{{viewDetails.imagesToArr(aim.images)}}" wx:key="index">
       <swiper-item>
         <image
           src="{{item}}"
@@ -22,32 +22,32 @@
 
   <!-- <view class="content">
     <view class="date">
-      <text>该习惯由{{habit.initiator}}发起，属于{{habit.taxology}}习惯</text>
+      <text>该习惯由{{aim.initiator}}发起，属于{{aim.taxology}}习惯</text>
     </view>
     <view class="date">
-      <text>用户{{habit.user}}于{{habit.create_time}}开始此习惯。</text>
+      <text>用户{{aim.user}}于{{aim.create_time}}开始此习惯。</text>
     </view>
-    <view class="date" wx:if="{{habit.today}}">
-      <text>习惯已持续了{{habit.duration}}天。今日已完成。</text>
+    <view class="date" wx:if="{{aim.today}}">
+      <text>习惯已持续了{{aim.duration}}天。今日已完成。</text>
     </view>
-    <view class="date" wx:else="{{habit.today}}">
-      <text>习惯已持续了{{habit.duration}}天。今日尚未完成。</text>
+    <view class="date" wx:else="{{aim.today}}">
+      <text>习惯已持续了{{aim.duration}}天。今日尚未完成。</text>
     </view>
     <view class="title">
-      <text>{{habit.title}}</text>
+      <text>{{aim.title}}</text>
     </view>
     <view class="text">
-      <text>{{habit.content}}</text>
+      <text>{{aim.content}}</text>
     </view>
   </view> -->
   <form bindsubmit="submit">
-    <view class="habit-detail-container">
+    <view class="aim-detail-container">
       <view>
         <text class="{{mdInput.title.placeholder}}">标题</text>
         <input
           class="{{mdInput.title.input}}"
           placeholder-class="标题"
-          value="{{habit.title}}"
+          value="{{aim.title}}"
           name="title"
           disabled="{{!isEditMode}}"
           bindfocus="handleInputFocus"
@@ -61,7 +61,7 @@
         <input
           class="{{mdInput.content.input}}"
           placeholder-class="描述"
-          value="{{habit.content}}"
+          value="{{aim.content}}"
           name="content"
           disabled="{{!isEditMode}}"
           bindfocus="handleInputFocus"
@@ -94,13 +94,13 @@
           <switch
             wx:if="{{isEditMode}}"
             type="checkbox"
-            checked="{{habit.isOpen}}"
+            checked="{{aim.isOpen}}"
             data-name="isOpen"
             bindchange="handleSwitchChange"
           />
           <text class="label-light" style="font-size: 16px">好友</text>
           <text
-            wx:if="{{!isEditMode && !habit.isOpen}}"
+            wx:if="{{!isEditMode && !aim.isOpen}}"
             class="label-light"
             style="font-size: 16px"
           >不</text>
@@ -109,7 +109,7 @@
       </view>
       <view wx:if="{{!isCreateMode}}" style="margin: 16px 0">
         <view>创建时间</view>
-        <view style="margin-top: 8px">{{habit.createTime}}</view>
+        <view style="margin-top: 8px">{{aim.createTime}}</view>
       </view>
     </view>
 
@@ -125,18 +125,18 @@
       <view wx:if="{{isEditMode}}" class="bottom-btn" bindtap='cancel'>
         <text>取消编辑</text>
       </view>
-      <view wx:else class="bottom-btn" bindtap='deleteHabit'>
+      <view wx:else class="bottom-btn" bindtap='deleteAim'>
         <image class="btn-icon" src="../../../../images/delete.png" />
         <text>删除习惯</text>
       </view>
     </view>
   </form>
  
-  <!-- <view class="like" bindtap="like" wx:if="{{habit.user_id !== user.id}}">
-    <image src="../../../../images/like.png" class="image" wx:if="{{!habit.is_liked}}" />
-    <image src="../../../../images/liked.png" class="image" wx:if="{{habit.is_liked}}" />
+  <!-- <view class="like" bindtap="like" wx:if="{{aim.user_id !== user.id}}">
+    <image src="../../../../images/like.png" class="image" wx:if="{{!aim.is_liked}}" />
+    <image src="../../../../images/liked.png" class="image" wx:if="{{aim.is_liked}}" />
   </view> -->
-  <!-- <view class="edit-btn" wx:if="{{habit.user_id === user.id}}"> -->
+  <!-- <view class="edit-btn" wx:if="{{aim.user_id === user.id}}"> -->
 </view>
 
 <wxs module="viewDetails" src="./index.wxs"></wxs>

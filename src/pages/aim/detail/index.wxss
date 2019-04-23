@@ -2,7 +2,7 @@ button::after {
   border: none;
 }
 
-.habit-detail-container {
+.aim-detail-container {
   position: fixed;
   overflow: scroll;
   top: 0;

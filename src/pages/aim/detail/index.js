@@ -12,7 +12,7 @@ Page({
     // nextMargin: 0,
     isCreateMode: false,
     isEditMode: false,
-    habit: {
+    aim: {
       id: null,
       title: '',
       content: '',
@@ -40,24 +40,24 @@ Page({
 
   // methods
   getData() {
-    // get habit data
-    http.get(`habit/${this.data.habit.id}`).then((res) => {
+    // get aim data
+    http.get(`aim/${this.data.aim.id}`).then((res) => {
       console.log(res.data);
-      const { habit } = this.data;
-      habit.isOpen = res.data.is_open;
-      habit.content = res.data.content || '';
-      habit.frequency = res.data.frequency || 1;
-      habit.createTime = res.data.create_time || '';
+      const { aim } = this.data;
+      aim.isOpen = res.data.is_open;
+      aim.content = res.data.content || '';
+      aim.frequency = res.data.frequency || 1;
+      aim.createTime = res.data.create_time || '';
 
       // init md-input css style
       const { mdInput } = this.data;
-      if (habit.title && habit.title !== '') {
+      if (aim.title && aim.title !== '') {
         mdInput.title = {
           input: 'md-input',
           placeholder: 'md-placeholder-float label-light',
         };
       }
-      if (habit.content && habit.content !== '') {
+      if (aim.content && aim.content !== '') {
         mdInput.content = {
           input: 'md-input',
           placeholder: 'md-placeholder-float label-light',
@@ -65,12 +65,12 @@ Page({
       }
       // init frequency data
       const { picker } = this.data;
-      let index = this.data.picker.frequency.range.indexOf(this.data.habit.frequency);
+      let index = this.data.picker.frequency.range.indexOf(this.data.aim.frequency);
       index = index === -1 ? 0 : index;
       picker.frequency.index = index;
       // update data
       this.setData({
-        habit,
+        aim,
         mdInput,
         picker,
       });
@@ -97,23 +97,23 @@ Page({
   },
 
   // like() {
-  //   if (this.data.habit.is_liked) return;
+  //   if (this.data.aim.is_liked) return;
   //   const { uid, timestamp, token } = getApp().data.key;
-  //   const habitId = this.data.habit.id;
+  //   const aimId = this.data.aim.id;
   //   wx.request({
-  //     url: `${getApp().data.domain}habits/like`,
+  //     url: `${getApp().data.domain}aims/like`,
   //     method: 'POST',
   //     data: {
-  //       uid, timestamp, token, habitId,
+  //       uid, timestamp, token, aimId,
   //     },
   //     success(res) {
   //       if (res.data.code === 0) {
-  //         const { habit } = this.data;
-  //         habit.is_liked = 1;
+  //         const { aim } = this.data;
+  //         aim.is_liked = 1;
   //         this.setData({
-  //           habit,
+  //           aim,
   //         });
-  //         console.log(this.data.habit);
+  //         console.log(this.data.aim);
   //       } else {
   //         console.log(res);
   //       }
@@ -126,22 +126,22 @@ Page({
 
   submit() {
     const params = {
-      title: this.data.habit.title,
-      content: this.data.habit.content,
-      frequency: this.data.habit.frequency,
-      is_open: this.data.habit.isOpen,
+      title: this.data.aim.title,
+      content: this.data.aim.content,
+      frequency: this.data.aim.frequency,
+      is_open: this.data.aim.isOpen,
     };
     console.log(params);
     if (this.data.isCreateMode) {
-      // create a habit
-      http.post('habit', params).then((res) => {
+      // create a aim
+      http.post('aim', params).then((res) => {
         wx.redirectTo({
-          url: `/src/pages/habit/detail/index?id=${res.data.id}`,
+          url: `/src/pages/aim/detail/index?id=${res.data.id}`,
         });
       });
-    } else if (this.data.habit.id) {
-      // modify a habit
-      http.put(`habit/${this.data.habit.id}`, params).then((res) => {
+    } else if (this.data.aim.id) {
+      // modify a aim
+      http.put(`aim/${this.data.aim.id}`, params).then((res) => {
         console.log(res);
         this.setData({ isEditMode: false });
       });
@@ -178,10 +178,10 @@ Page({
   },
 
   deleteHabit() {
-    if (this.data.habit.id) {
-      http.delete(`habit/${this.data.habit.id}`).then(() => {
+    if (this.data.aim.id) {
+      http.delete(`aim/${this.data.aim.id}`).then(() => {
         wx.switchTab({
-          url: '/src/pages/habit/index/index',
+          url: '/src/pages/aim/index/index',
         });
       });
     }
@@ -198,16 +198,16 @@ Page({
 
   handleInput(e) {
     // modify input value
-    const { habit } = this.data;
-    habit[e.target.dataset.name] = e.detail.value;
+    const { aim } = this.data;
+    aim[e.target.dataset.name] = e.detail.value;
     // update data
-    this.setData({ habit });
+    this.setData({ aim });
   },
 
   handleInputBlur(e) {
     // modify input value
-    const { habit } = this.data;
-    habit[e.target.dataset.name] = e.detail.value;
+    const { aim } = this.data;
+    aim[e.target.dataset.name] = e.detail.value;
     // md-input animation
     const mdInput = { ...this.data.mdInput };
     if (e.detail.value === '') {
@@ -224,35 +224,35 @@ Page({
     // update data
     this.setData({
       mdInput,
-      habit,
+      aim,
     });
   },
 
   handlePickerChange(e) {
     const { picker } = this.data;
-    const { habit } = this.data;
+    const { aim } = this.data;
     picker[e.target.dataset.name].index = +e.detail.value;
-    habit[e.target.dataset.name] = picker[e.target.dataset.name].range[+e.detail.value];
+    aim[e.target.dataset.name] = picker[e.target.dataset.name].range[+e.detail.value];
     this.setData({
-      habit,
+      aim,
       picker,
     });
   },
 
   handleSwitchChange(e) {
-    const { habit } = this.data;
-    habit[e.target.dataset.name] = e.detail.value;
-    this.setData({ habit });
+    const { aim } = this.data;
+    aim[e.target.dataset.name] = e.detail.value;
+    this.setData({ aim });
   },
 
   onLoad(option) {
     console.log('-----', option);
-    let title = '习惯详情';
-    const { habit, mdInput } = this.data;
+    let title = '目标详情';
+    const { aim, mdInput } = this.data;
     if (option.id !== '__new__') {
-      habit.id = +option.id;
-      habit.title = option.title;
-      this.setData({ habit });
+      aim.id = +option.id;
+      aim.title = option.title;
+      this.setData({ aim });
       this.getData();
     } else {
       // create mode
@@ -263,7 +263,7 @@ Page({
         isEditMode: true,
         mdInput,
       });
-      title = '编辑习惯';
+      title = '编辑目标';
     }
     wx.setNavigationBarTitle({ title });
   },

@@ -1,0 +1,33 @@
+<view>
+  <view class='list-group'>
+  </view>
+  <view class="list-group">
+    <view class="list list-link" data-name="feedback">
+      <view class="list-front h-center" data-name="feedback">
+        <image class="icon" src="/images/profile/feedback.png" />
+      </view>
+      <view class="list-title" data-name="feedback">反馈</view>
+      <view class="list-extra h-right" data-name="feedback">
+        <image class="icon" src="/images/profile/arrowRight.png" data-name="feedback" />
+      </view>
+    </view>
+    <view class="list list-link" data-name="privacy">
+      <view class="list-front h-center" data-name="privacy">
+        <image class="icon" src="/images/profile/privacy.png" />
+      </view>
+      <view class="list-title" data-name="privacy">隐私策略</view>
+      <view class="list-extra h-right" data-name="privacy">
+        <image class="icon" src="/images/profile/arrowRight.png" data-name="privacy" />
+      </view>
+    </view>
+    <view class="list list-link" data-name="about">
+      <view class="list-front h-center" data-name="about">
+        <image class="icon" src="/images/profile/about.png" />
+      </view>
+      <view class="list-title" data-name="about">关于我们</view>
+      <view class="list-extra h-right" data-name="about">
+        <image class="icon" src="/images/profile/arrowRight.png" data-name="about" />
+      </view>
+    </view>
+  </view>
+</view>
