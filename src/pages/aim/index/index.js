@@ -75,10 +75,10 @@ Page({
     console.log(e.currentTarget.dataset);
     const aim = this.data.aim[idx];
     console.log(e.target.dataset.type);
-    if (e.target.dataset.type == "item") {
+    if (e.target.dataset.type === 'item') {
       wx.navigateTo({
-        url: '/src/pages/aim/detail/index?id=${aim.id}&&title=${aim.title}',
-      })
+        url: `/src/pages/habit/detail/index?id=${aim.id}&&title=${aim.title}`,
+      });
     }
   },
 
