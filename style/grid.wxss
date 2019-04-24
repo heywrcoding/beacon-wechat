@@ -12,16 +12,16 @@
   border-right:1rpx solid #d9d9d9;
   border-bottom:1rpx solid #d9d9d9
 }
-.grid_active{
+.grid-active{
   background-color:#ececec
 }
-.grid_icon{
+.grid-icon{
   display:block;
   width:28px;
   height:28px;
   margin:0 auto
 }
-.grid_label{
+.grid-title{
   margin-top:5px;
   display:block;
   text-align:center;
